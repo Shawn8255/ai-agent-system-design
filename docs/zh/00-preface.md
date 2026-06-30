@@ -28,8 +28,10 @@
 | 第 8 章 | AGENTS.md 与 Prompt Index | 后续 |
 | 第 9 章 | RAG、Retrieval 与 Context Routing | 后续 |
 | 第 10 章 | Distillation、Small Model 与 Tiered Compute | 后续 |
-| 第 11 章 | Multi-Agent 与分布式系统 | 后续 |
-| 第 12 章 | 未来方向：Agent Operating System | 后续 |
+| 第 11 章 | Agent 生产可靠性：幂等、状态机与回放 | 后续 |
+| 第 12 章 | Multi-Agent、并发调度与多租户 | 后续 |
+| 第 13 章 | Agent 安全：Prompt Injection、Sandbox 与权限边界 | 后续 |
+| 第 14 章 | 未来方向：Agent Operating System | 后续 |
 
 ## 术语约定
 
@@ -41,6 +43,9 @@
 | Context | 本次请求真正送入模型的工作集 | Working Set / Buffer Pool |
 | Tool | Agent 可调用的外部能力，例如文件、邮件、日历、GitHub、Shell | RPC / API |
 | Distillation | 把大模型能力迁移到小模型或固定工作流 | Precomputation / Tiered Compute |
+| Sandbox | 限制 Agent 工具、文件、网络和代码执行权限的隔离环境 | OS Process / Container |
+| Idempotency | 保证重试不会重复产生副作用的执行约束 | Payment Idempotency / Exactly-once Boundary |
+| Replay | 复现 Agent 执行过程、工具调用和状态变化，用于调试、审计和对账 | Event Log / Audit Trail |
 
 ![图 1](assets/figure-01.png)
 

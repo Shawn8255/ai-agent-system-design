@@ -14,6 +14,7 @@ This repository now keeps the editable book source in Markdown, extracted from t
 - Chapters 1-3 are extracted from the existing DOCX source files and should preserve the current meaning.
 - Chapter 4 and later chapters are represented only in the chapter plan.
 - The terminology table and chapter plan are maintained in each language's `00-preface.md`.
+- The expanded future plan now includes agent production reliability, concurrent scheduling, multi-tenancy, and security/sandboxing as first-class topics.
 
 ## Source Files
 

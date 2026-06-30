@@ -2,6 +2,8 @@
 
 Part I completes the foundational system perspective. Later chapters will continue the same line of reasoning: how memory maps to storage, how stateless agents map to stateless services, why context engineering resembles query optimization, why AGENTS.md can act like an index, and why distillation and small models fit naturally into tiered compute.
 
+The next stage should also add three engineering themes that strengthen the book's differentiation. First, agent security should not remain a footnote. Operating-system security models will migrate into agent systems: prompt injection behaves more like an exploit, tool use needs capability boundaries, and code or external-system access needs sandboxing. Second, concurrent scheduling is where the OS analogy becomes most literal. Multi-agent, multi-tenant execution, task queues and resource isolation go beyond the single-task Planner-to-Scheduler analogy. Third, agents should be treated as production systems: they need SLAs, idempotency, optimistic locking, state machines, retries, degradation, escalation, observability, audit, replay and reconciliation. This production reliability perspective is the main difference from OS-analogy papers that focus mostly on architecture and runnable prototypes.
+
 1. Chapter 4 will separate the responsibilities of memory, tools and planner.
 
 1. Chapters 5-6 will focus on compute/storage separation and stateless agents.
@@ -10,4 +12,10 @@ Part I completes the foundational system perspective. Later chapters will contin
 
 1. Chapters 9-10 will discuss retrieval, distillation, small models and tiered compute.
 
-1. Chapters 11-12 will return to multi-agent systems, distributed systems and agent OS.
+1. Chapter 11 will treat agents as production systems, focusing on idempotency, optimistic locking, state machines, retries, degradation, escalation, observability, audit, replay and reconciliation.
+
+1. Chapter 12 will cover multi-agent, multi-tenant and concurrent scheduling, moving the Planner-to-Scheduler analogy from single-task execution to resource contention and orchestration.
+
+1. Chapter 13 will add the missing agent security model, including prompt injection as exploit, tool capability boundaries, sandboxing, least privilege and audit.
+
+1. Chapter 14 will return to the agent operating system idea and connect memory, tools, planning, security, scheduling and production reliability into one system view.

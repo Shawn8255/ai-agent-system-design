@@ -19,6 +19,14 @@ This repository contains a bilingual Markdown edition of a technical book on AI 
   - Compute Engine
   - Orchestrator
   - Tiered Compute
+  - Sandbox
+  - Prompt Injection
+  - Idempotency
+  - State Machine
+  - Replay
+  - Observability
+  - Audit
+  - Concurrent Scheduling
 
 ## Structure
 

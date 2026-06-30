@@ -28,8 +28,10 @@ Part I completes the first three chapters. Chapter 1 establishes the system-leve
 | Chapter 8 | AGENTS.md as a Prompt Index | Planned |
 | Chapter 9 | Retrieval and Context Routing | Planned |
 | Chapter 10 | Distillation, Small Models and Tiered Compute | Planned |
-| Chapter 11 | Multi-Agent Systems and Distributed Systems | Planned |
-| Chapter 12 | Toward an Agent Operating System | Planned |
+| Chapter 11 | Agent Production Reliability: Idempotency, State Machines and Replay | Planned |
+| Chapter 12 | Multi-Agent, Concurrent Scheduling and Multi-Tenancy | Planned |
+| Chapter 13 | Agent Security: Prompt Injection, Sandboxes and Capability Boundaries | Planned |
+| Chapter 14 | Toward an Agent Operating System | Planned |
 
 ## Terminology
 
@@ -41,6 +43,9 @@ Part I completes the first three chapters. Chapter 1 establishes the system-leve
 | Context | The working set sent to the model for the current request | Working Set / Buffer Pool |
 | Tool | External capability such as files, mail, calendar, GitHub or shell | RPC / API |
 | Distillation | Moving capability from a large model to a smaller model or fixed workflow | Precomputation / Tiered Compute |
+| Sandbox | An isolated environment that limits an agent's tool, file, network and code execution privileges | OS Process / Container |
+| Idempotency | An execution constraint that makes retries safe from duplicate side effects | Payment Idempotency / Exactly-once Boundary |
+| Replay | Reconstructing agent execution, tool calls and state transitions for debugging, audit and reconciliation | Event Log / Audit Trail |
 
 ![Figure 1](assets/figure-01.png)
 
