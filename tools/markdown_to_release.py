@@ -41,13 +41,13 @@ BOOK_FILES = [
     "05-compute-storage-separation.md",
     "06-stateless-agent.md",
     "07-context-engineering-query-optimization.md",
-    "08-agents-md-prompt-index.md",
-    "09-retrieval-context-routing.md",
-    "10-token-reduction-distillation-tiered-compute.md",
-    "11-agent-production-reliability.md",
-    "12-multi-agent-concurrent-scheduling.md",
-    "13-agent-security.md",
-    "14-agent-operating-system.md",
+    "08-retrieval-context-routing.md",
+    "09-token-reduction-distillation-tiered-compute.md",
+    "10-agent-production-reliability.md",
+    "11-multi-agent-concurrent-scheduling.md",
+    "12-agent-security.md",
+    "13-agent-operating-system.md",
+    "98-references.md",
     "99-future-chapters.md",
 ]
 
@@ -352,24 +352,24 @@ def convert_docx_to_pdf(docx_path: Path, pdf_path: Path) -> None:
 
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
-    version = "v0.6"
+    version = "v0.7"
     configs = [
         ReleaseConfig(
             lang="zh",
             title="AI Agent 系统设计",
-            subtitle="从经典计算机工程到现代智能体架构 - 第一部分：前十四章完整版",
+            subtitle="从经典计算机工程到现代智能体架构 - 第一部分：前十三章完整版",
             source_dir=root / "docs/zh",
-            docx_path=root / f"releases/docx/AI_Agent_System_Design_CN_Part1_Ch1-14_{version}.docx",
-            pdf_path=root / f"releases/pdf/AI_Agent_System_Design_CN_Part1_Ch1-14_{version}.pdf",
+            docx_path=root / f"releases/docx/AI_Agent_System_Design_CN_Part1_Ch1-13_{version}.docx",
+            pdf_path=root / f"releases/pdf/AI_Agent_System_Design_CN_Part1_Ch1-13_{version}.pdf",
             font="Arial",
         ),
         ReleaseConfig(
             lang="en",
             title="AI Agent System Design",
-            subtitle="From Classical Computer Engineering to Modern Agent Architectures - Part I: Chapters 1-14",
+            subtitle="From Classical Computer Engineering to Modern Agent Architectures - Part I: Chapters 1-13",
             source_dir=root / "docs/en",
-            docx_path=root / f"releases/docx/AI_Agent_System_Design_EN_Part1_Ch1-14_{version}.docx",
-            pdf_path=root / f"releases/pdf/AI_Agent_System_Design_EN_Part1_Ch1-14_{version}.pdf",
+            docx_path=root / f"releases/docx/AI_Agent_System_Design_EN_Part1_Ch1-13_{version}.docx",
+            pdf_path=root / f"releases/pdf/AI_Agent_System_Design_EN_Part1_Ch1-13_{version}.pdf",
             font="Arial",
         ),
     ]

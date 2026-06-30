@@ -1,6 +1,6 @@
-# Chapter 7. Context Engineering and Query Optimization
+# Chapter 7. Context Engineering, Prompt Index and Query Optimization
 
-> Chapter focus: treat context engineering as data loading and query optimization, not just prompt writing.
+> Chapter focus: treat context engineering as data loading and query optimization, and explain why AGENTS.md is the project-level index inside that data-loading mechanism.
 
 ## 7.1 The Question
 
@@ -57,9 +57,34 @@ Prompt caching reduces the cost of repeated prefixes. It does not change the age
 
 This resembles cache-friendly system design. Cache hits require stable keys, stable structure and predictable change boundaries. Agent prompts are similar. If each round injects changing timestamps, random phrasing or irrelevant logs into the prefix, prompt caching becomes less useful.
 
-## 7.7 Failure Modes
+## 7.7 AGENTS.md as a Project-Level Prompt Index
 
-Context engineering failures usually come from bad data-loading strategy, not from the model suddenly becoming worse.
+The data loading above assumes one thing: the context builder already knows where project knowledge lives. When an agent enters a project, it does not face one file. It faces a workspace: code, docs, configuration, tests, scripts, historical conventions and implicit workflows. Even a strong model becomes expensive, slow and inconsistent if it has to rediscover the whole project every time.
+
+This is where AGENTS.md matters. It is not just a note for humans, and not merely a prompt for the model. From a systems perspective, it is a project-level prompt index: a small entry point that tells the agent where to begin, which rules matter and which files form the critical path.
+
+The value of an index is using a small structure to locate large content. A database index does not store every field of every row, but it helps the query find relevant rows quickly. AGENTS.md is similar. It should not contain all project knowledge, but it should contain enough routing information to find the right places. If the README is the project homepage, AGENTS.md is closer to a query entry point and routing table: it does not replace documentation, it helps the context builder decide which documentation to load.
+
+## 7.8 What a Prompt Index Should and Should Not Contain
+
+A project-level prompt index should answer: what is the technology stack? What are the common commands? How do tests and formatting run? How are core directories organized? Where is task-specific documentation? Which conventions override local guesses? Which operations are risky?
+
+| Content type | Example | Purpose |
+| --- | --- | --- |
+| Project role | API service, frontend app, data pipeline or documentation project | Establish task boundaries |
+| Key directories | `src/`, `tests/`, `docs/`, `scripts/` | Locate files quickly |
+| Common commands | Test, format, build, release generation | Avoid guessing commands |
+| Code/doc conventions | Naming, formatting, terminology, chapter structure | Keep edits consistent |
+| Risk boundaries | Do not edit generated files, rewrite chapters or delete releases | Avoid destructive changes |
+| Task routing | Where to start for API fixes or documentation edits | Guide context selection |
+
+The main risk of AGENTS.md is bloat. Full business background, long tutorials, every API detail, all historical decisions, information already obvious from code, and frequently changing task lists do not belong here. Those belong in dedicated documents or issues, with AGENTS.md pointing to them. In short, AGENTS.md should store "where to look" and "what must be obeyed," not all knowledge itself.
+
+Large projects may need layered AGENTS.md files. The root file provides global rules; subdirectory files provide local rules. This resembles configuration inheritance or routing tables. When editing a file, the agent should load the relevant AGENTS.md files along the path from the root to the target directory, not just one global file.
+
+## 7.9 Failure Modes
+
+Whether for context engineering or the prompt index, failures usually come from a bad data-loading strategy, not from the model suddenly becoming worse.
 
 First, under-recall. A key file, memory or tool result does not enter context, so the model guesses.
 
@@ -71,8 +96,10 @@ Fourth, bad ordering. The right information is present but placed where the mode
 
 Fifth, cache misses. Stable prefixes are rewritten unnecessarily, preventing prompt caching from helping.
 
-## 7.8 Summary
+Sixth, a stale or vague index. AGENTS.md commands, directories or conventions change without updates, or it only says "keep code quality high" without concrete commands and boundaries, so the agent follows a wrong index.
 
-This chapter positioned context engineering as query optimization. Agents should not chase unlimited context. They should select, filter, order and compress data the way query optimizers prepare execution.
+## 7.10 Summary
 
-This perspective explains why AGENTS.md matters. It is not just a note file. It is an index-like entry point that helps the agent find project knowledge. Chapter 8 discusses AGENTS.md as a prompt index.
+This chapter positioned context engineering as query optimization: agents should not chase unlimited context but should select, filter, order and compress data the way query optimizers prepare execution. AGENTS.md is the project-level index inside that mechanism, using a small entry point to lower context-loading cost and raise hit rate.
+
+But an index only solves "where to start looking." Actual reads still need to decide which sources to read, how much to read and in what order. Chapter 8 continues with retrieval and context routing, showing why retrieval is not just similar-text search but choosing the right context path.

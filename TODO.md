@@ -32,10 +32,12 @@
 - [x] Decide whether DOCX/PDF releases should continue to be generated from Markdown.
 - [x] Update `README.md`, `AGENTS.md`, `CONTRIBUTING.md`, and bilingual README files for the Chapter 1-14 draft.
 - [ ] Add a formal release checklist for public publication.
-- [ ] Choose and add a text-oriented license, likely Creative Commons rather than MIT.
-- [ ] Add citations and reference notes for the public release.
-- [ ] Add examples or case studies for the production reliability chapter.
-- [ ] Add a cost optimization example to Chapter 10 using the cost model.
-- [ ] Turn the distillation-vs-token-reduction argument into a publishable X thread derived from Chapter 10.
+- [x] Choose and add a text-oriented license (CC BY 4.0).
+- [x] Add citations and reference notes for the public release (`docs/{zh,en}/98-references.md`).
+- [x] Merge former Chapters 7-8 into one context-engineering + prompt-index chapter and renumber the book to Chapters 1-13.
+- [x] Add examples or case studies for the production reliability chapter (now Chapter 10).
+- [x] Add a cost optimization example to the token chapter (now Chapter 9) using the cost model.
+- [x] Generate v0.7 DOCX/PDF release artifacts for Chapters 1-13.
+- [ ] Turn the distillation-vs-token-reduction argument into a publishable X thread derived from Chapter 9.
 - [ ] Add a short English summary to the root README for overseas readers if the repository is promoted publicly.
 - [ ] Decide whether release DOCX/PDF artifacts should stay committed or move to GitHub Releases after public launch.

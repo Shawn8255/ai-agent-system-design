@@ -1,8 +1,8 @@
-# Chapter 12. Multi-Agent, Concurrent Scheduling and Multi-Tenancy
+# Chapter 11. Multi-Agent, Concurrent Scheduling and Multi-Tenancy
 
 > Chapter focus: move the planner/scheduler analogy from single-task execution into multi-agent, multi-task and multi-tenant resource contention.
 
-## 12.1 The Question
+## 11.1 The Question
 
 The previous chapters mostly looked at one agent executing one task: read context, plan steps, call tools and update state. But the most literal part of the OS analogy is not the single-task planner. It is concurrent scheduling.
 
@@ -10,7 +10,7 @@ A real platform will not run just one agent. It will serve many users, tenants, 
 
 This is where an Agent OS or AIOS becomes valuable: not merely making one agent run, but making many agents run on shared resources in a controlled way.
 
-## 12.2 A Single-Task Planner Is Not a Global Scheduler
+## 11.2 A Single-Task Planner Is Not a Global Scheduler
 
 The planner orders steps inside one task. The scheduler allocates resources across tasks. These roles should not be collapsed.
 
@@ -23,7 +23,7 @@ An agent's planner may decide, "search again and call the model one more time." 
 | Runtime | Execution environment | Tool calls, state records, permission checks |
 | Policy Engine | Constraints | Quotas, priorities, tenant boundaries, risk level |
 
-## 12.3 Resource Dimensions for Agent Tasks
+## 11.3 Resource Dimensions for Agent Tasks
 
 Traditional service schedulers manage CPU, memory, IO and network. Agent scheduling adds several special resources.
 
@@ -31,7 +31,9 @@ The first is token budget. Long context and multi-round reasoning can expand cos
 
 These resources cannot always be handled by one queue. Read tasks can run concurrently. Writes to the same object need serialization. High-risk tasks need an approval queue. Low-value tasks can be degraded or delayed.
 
-## 12.4 Multi-Tenant Isolation
+This also exposes the limit of the agent-scheduler / OS-scheduler analogy. The CPU time an OS schedules is homogeneous, preemptible and precisely metered: a time slice is a time slice, preemption is almost free, and a swapped-out process resumes unchanged. Agent resources are not like that. Token budgets and model calls are neither preemptible nor easy to reclaim mid-flight, once a large-model call is issued you pay for it and cannot "slice back"; model tiers differ tenfold in price and are not interchangeable units; and a tool call with side effects cannot simply be swapped out and resumed once executed. So the agent scheduler borrows the "quota, priority, isolation" ideas from OS scheduling, but it governs a set of heterogeneous, partly non-preemptible resources that carry real side effects, which puts it closer to admission control under cost and risk constraints than to classical time-slice round-robin.
+
+## 11.4 Multi-Tenant Isolation
 
 A multi-tenant agent platform must isolate context, memory, tool permissions, logs and cost.
 
@@ -39,7 +41,7 @@ The most dangerous failure is not that one task is slow. It is that one tenant's
 
 Multi-tenancy also means budget isolation. One tenant's infinite loop should not exhaust global model quota. One user's long task should not starve high-priority tasks. One failing tool should not block every queue.
 
-## 12.5 Concurrent Writes and Locks
+## 11.5 Concurrent Writes and Locks
 
 Agents often modify shared objects: files, issues, orders, database records, documents and calendar events. Concurrent writes need explicit policy.
 
@@ -53,7 +55,7 @@ Agents often modify shared objects: files, issues, orders, database records, doc
 
 Agents should not hold long pessimistic locks. A better pattern is short transactions, version checks, conflict detection and replanning. The system must surface conflicts explicitly instead of letting the model keep writing from stale context.
 
-## 12.6 Scheduling Policies
+## 11.6 Scheduling Policies
 
 Agent scheduling can borrow classical policies, but it must adapt them to cost and risk.
 
@@ -61,13 +63,13 @@ FIFO is simple but lets long tasks block short ones. Priority queues protect hig
 
 The practical answer is usually a combination: apply quotas by tenant and user, split queues by task type, decide whether confirmation is needed by risk level, then schedule by model and tool availability.
 
-## 12.7 Observability: From Trace to Load
+## 11.7 Observability: From Trace to Load
 
 A single agent trace explains one task. The scheduling system also needs global metrics: queue length, wait time, model concurrency, token usage, tool rate limits, failure rate, escalation rate, tenant budget and lock conflicts.
 
 These metrics determine whether the system is healthy. An agent can look intelligent, but if it causes queue buildup, repeated retries, budget exhaustion or tenant starvation, the platform is still unreliable.
 
-## 12.8 Summary
+## 11.8 Summary
 
 This chapter moved from the single-task view to the concurrent-system view. A planner solves ordering inside a task. A scheduler resolves competition across agents, tenants and resources.
 

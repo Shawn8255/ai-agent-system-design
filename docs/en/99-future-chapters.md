@@ -1,6 +1,6 @@
 # Future Revision Notes
 
-Part I now has a complete Chapter 1-14 draft. Future work should focus on public release quality, reader feedback and stronger examples rather than adding more chapters.
+Part I now has a complete Chapter 1-13 draft. Future work should focus on public release quality, reader feedback and stronger examples rather than adding more chapters.
 
 ## 1. References and Literature
 
@@ -8,11 +8,11 @@ Later revisions should add fuller references for key claims, especially around A
 
 ## 2. Cases and Examples
 
-Chapter 10 can add a cost-optimization example that separately accounts for call count, tokens per call and cost per token. Chapter 11 can add a payment idempotency or order state-machine analogy to explain why agent tool calls need idempotency, replay and reconciliation. Chapters 12-13 can add pseudo-flows for scheduling and security incidents.
+Chapter 9 now includes an end-to-end cost example that separately accounts for call count, tokens per call and cost per token; later revisions can add comparison data across task distributions. Chapter 10 now includes a payment idempotency and order state-machine analogy explaining why agent tool calls need idempotency, replay and reconciliation. Chapters 11-12 can add pseudo-flows for scheduling and security incidents.
 
 ## 3. Public Writing Material
 
-The Chapter 10 argument that "distillation does not directly reduce tokens" is a good candidate for an X thread. The anchor can be:
+The Chapter 9 argument that "distillation does not directly reduce tokens" is a good candidate for an X thread. The anchor can be:
 
 ```text
 Total cost ~= call count x tokens per call x cost per token

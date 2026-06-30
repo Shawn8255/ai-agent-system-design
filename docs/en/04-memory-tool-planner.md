@@ -18,6 +18,8 @@ From an engineering perspective, memory is closer to a database or cache than to
 
 This distinction matters. If memory is designed as an endlessly growing chat transcript, the system soon becomes a mechanism for pushing more history into the prompt. A better design separates stable long-term facts, recent task state and temporary tool results. Only results that are worth reusing should be summarized and written back into long-term memory.
 
+The "memory is a database" analogy has limits, though, and should not be taken literally. A database query usually returns rows precisely against a fixed schema, and the result is deterministic. Reading memory instead goes through retrieval, relevance judgment and summarization, so recall itself is lossy and uncertain. A database is correct when it returns all matching rows; memory is correct when it surfaces only the few entries the current task actually needs, since over-recall pollutes the context. So the more precise statement is that memory borrows the "externalized state" and "layering" ideas from a database or cache, but its access path is closer to a retrieval system with relevance ranking than to a precise SQL query.
+
 ## 4.3 Tools Produce Effects; They Do Not Own Long-Term Meaning
 
 Tools connect the agent to the outside world. They can read files, send email, inspect calendars, access GitHub, run shell commands, call databases or operate business systems. The defining property of a tool is that it may produce real side effects.

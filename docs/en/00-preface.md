@@ -1,8 +1,8 @@
 # AI Agent System Design
 
-From Classical Computer Engineering to Modern Agent Architectures - Part I: Chapters 1-14
+From Classical Computer Engineering to Modern Agent Architectures - Part I: Chapters 1-13
 
-*Working Draft v0.6 - 2026-06-30*
+*Working Draft v0.7 - 2026-06-30*
 
 ## Preface
 
@@ -10,7 +10,7 @@ This document is not an API tutorial and not a transcript of a conversation. It 
 
 The central thesis is simple: LLMs were the breakthrough, but once LLMs are placed inside real products and workflows, the hard problems start to look familiar again. We need to manage state, reduce expensive remote calls, decide what to load into context, route requests to different compute layers, and design systems that remain observable, reliable, and scalable.
 
-Part I completes the first fourteen chapters. Chapter 1 establishes the system-level viewpoint. Chapter 2 reframes the LLM as a compute engine. Chapter 3 explains why an agent is better understood as an orchestrator. Chapter 4 separates the responsibilities of memory, tools and planner. Chapter 5 discusses compute/storage separation. Chapter 6 explains why stateless agents resemble microservice design. Chapters 7-9 discuss context engineering, AGENTS.md and retrieval / context routing. Chapters 10-14 add the cost model, production reliability, concurrent scheduling, security and the Agent OS synthesis.
+Part I completes the first thirteen chapters. Chapter 1 establishes the system-level viewpoint. Chapter 2 reframes the LLM as a compute engine. Chapter 3 explains why an agent is better understood as an orchestrator. Chapter 4 separates the responsibilities of memory, tools and planner. Chapter 5 discusses compute/storage separation. Chapter 6 explains why stateless agents resemble microservice design. Chapters 7-8 discuss context engineering, AGENTS.md as a prompt index, and retrieval / context routing. Chapters 9-13 add the cost model, production reliability, concurrent scheduling, security and the Agent OS synthesis.
 
 > Core thesis: the LLM is a new compute engine, while the agent is the orchestrator that manages context, tools, state recovery and resource scheduling around it.
 
@@ -24,14 +24,13 @@ Part I completes the first fourteen chapters. Chapter 1 establishes the system-l
 | Chapter 4 | Memory, Tools and Planner | Complete |
 | Chapter 5 | Compute / Storage Separation | Complete |
 | Chapter 6 | Stateless Agents | Complete |
-| Chapter 7 | Context Engineering and Query Optimization | Complete |
-| Chapter 8 | AGENTS.md as a Prompt Index | Complete |
-| Chapter 9 | Retrieval and Context Routing | Complete |
-| Chapter 10 | Token Reduction, Distillation and Tiered Compute | Complete |
-| Chapter 11 | Agent Production Reliability: Idempotency, State Machines and Replay | Complete |
-| Chapter 12 | Multi-Agent, Concurrent Scheduling and Multi-Tenancy | Complete |
-| Chapter 13 | Agent Security: Prompt Injection, Sandboxes and Capability Boundaries | Complete |
-| Chapter 14 | Toward an Agent Operating System | Complete |
+| Chapter 7 | Context Engineering, Prompt Index and Query Optimization | Complete |
+| Chapter 8 | Retrieval and Context Routing | Complete |
+| Chapter 9 | Token Reduction, Distillation and Tiered Compute | Complete |
+| Chapter 10 | Agent Production Reliability: Idempotency, State Machines and Replay | Complete |
+| Chapter 11 | Multi-Agent, Concurrent Scheduling and Multi-Tenancy | Complete |
+| Chapter 12 | Agent Security: Prompt Injection, Sandboxes and Capability Boundaries | Complete |
+| Chapter 13 | Toward an Agent Operating System | Complete |
 
 ## Terminology
 

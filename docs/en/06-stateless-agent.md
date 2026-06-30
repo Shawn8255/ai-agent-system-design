@@ -18,6 +18,8 @@ This is similar to web services. A stateless web service still handles login, ca
 
 Agents should work similarly. Before a task runs, the agent can read user memory, project files, task state and tool logs. During execution, it builds context. After execution, it writes stable results back. As long as that state is not tied to one process, the agent can behave more like a stateless service.
 
+The analogy to a stateless web service has a limit worth naming. A typical web request is short and cheap, so re-restoring state on every request costs little. An agent task is often long, multi-step and expensive: it may span many model and tool calls and minutes of wall-clock time. Rebuilding full context from external state before every step can become a real cost, and unlike a web handler the agent must also reason about side effects already committed mid-task. So statelessness here does not mean "cheap to restart anywhere." It means the durable state lives outside the process, while the system still has to make restoration efficient (caching, snapshots) and make partial progress recoverable, which a stateless web service rarely has to worry about.
+
 ## 6.3 Why Agents Drift Toward Stateful Mud
 
 Agents easily become stateful mud because natural-language tasks have blurry boundaries. What the model said in the previous turn, what tools returned, what the user changed temporarily and where the planner currently is all feel like things the system should remember.

@@ -1,8 +1,8 @@
-# Chapter 9. Retrieval and Context Routing
+# Chapter 8. Retrieval and Context Routing
 
 > Chapter focus: expand retrieval from similar-text search into context routing for agents.
 
-## 9.1 The Question
+## 8.1 The Question
 
 RAG is often described as "retrieve, then generate." That definition is not wrong, but it is too narrow for agent systems. Real agents do not only face knowledge-base documents. They face project files, code, memory, tool results, task state, issues, logs and external systems.
 
@@ -10,7 +10,7 @@ Retrieval inside an agent should therefore not mean only vector similarity searc
 
 This chapter asks: what role does retrieval actually play inside an agent? Why is "find similar text" only one part of the problem?
 
-## 9.2 RAG Is One Read Path
+## 8.2 RAG Is One Read Path
 
 Chapter 5 positioned RAG as one read path from storage into context. It is useful for large bodies of unstructured text such as docs, knowledge bases, manuals and historical records. The retrieval system finds relevant chunks, and the context builder places them into the prompt.
 
@@ -18,7 +18,7 @@ But an agent has many read paths beyond RAG. Querying a database, reading files,
 
 A more precise architecture statement is: RAG is one implementation technique inside context routing. It is not the entire context system.
 
-## 9.3 Inputs to Context Routing
+## 8.3 Inputs to Context Routing
 
 Context routing uses multiple signals to choose read paths.
 
@@ -33,7 +33,7 @@ Context routing uses multiple signals to choose read paths.
 
 These signals show that retrieval is not just similarity ranking. Similarity is one score. Context routing is a system-level decision.
 
-## 9.4 Value and Limits of Vector Retrieval
+## 8.4 Value and Limits of Vector Retrieval
 
 Vector retrieval is good at finding semantically similar content in large text collections. It is useful for documentation, historical discussions, similar issues and conceptual explanations. For agents, it can reduce the cost of understanding a project from scratch.
 
@@ -41,7 +41,7 @@ But vector retrieval has limits. First, it may return content that looks relevan
 
 Vector retrieval should therefore be combined with metadata filters, timestamps, permission checks, file paths, code structure and task state. Pure top-k similar chunks can easily send the wrong context to the model.
 
-## 9.5 Hybrid Retrieval
+## 8.5 Hybrid Retrieval
 
 Production agents often need hybrid retrieval. Different sources and methods complement each other. Keyword search is good for exact identifiers. Vector search is good for semantic similarity. Structured queries are good for state and permissions. File paths are good for project structure. Tool calls are good for live information.
 
@@ -49,7 +49,7 @@ For example, debugging a bug may require several reads. The agent may first sear
 
 The key is routing order. What to read first, what to read next, when to stop and when to escalate to a more expensive retrieval or model call all affect cost and quality.
 
-## 9.6 Retrieval Results Are Not Final Context
+## 8.6 Retrieval Results Are Not Final Context
 
 Retrieval results are not the same as final context. They still need filtering, deduplication, ordering, compression and verification.
 
@@ -57,7 +57,7 @@ A common mistake is placing top-k chunks directly into the model. Those chunks m
 
 This is especially true for code and tool outputs. Code snippets need function names, file paths and call relationships. Logs need timestamps, error codes and key stack frames. Tool outputs need verifiable facts and side-effect state. Different content needs different compression strategies.
 
-## 9.7 Failure Modes
+## 8.7 Failure Modes
 
 First, wrong source routing. The agent uses document retrieval when it should query a database, or loads old memory when it should read the current file.
 
@@ -71,7 +71,7 @@ Fifth, unclear stopping conditions. The agent keeps retrieving and appending con
 
 These failures show that retrieval must be integrated with permissions, state, caching, audit and planning. It should not exist as a standalone module.
 
-## 9.8 Summary
+## 8.8 Summary
 
 This chapter placed RAG and retrieval inside the broader frame of context routing. RAG is an important read path, but an agent's context system also includes databases, files, memory, tool results, task state and logs.
 
