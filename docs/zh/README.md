@@ -7,3 +7,4 @@
 - [第 2 章 LLM：一种新的 Compute Engine](02-llm-compute-engine.md)
 - [第 3 章 Agent：为什么它更像 Orchestrator](03-agent-orchestrator.md)
 - [后续章节写作计划](99-future-chapters.md)
+- [发布与开源笔记](notes/publication-strategy.md)

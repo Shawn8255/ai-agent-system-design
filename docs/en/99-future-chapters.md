@@ -10,7 +10,7 @@ The next stage should also add three engineering themes that strengthen the book
 
 1. Chapters 7-8 will connect context engineering and AGENTS.md with database optimization.
 
-1. Chapters 9-10 will discuss retrieval, distillation, small models and tiered compute.
+1. Chapters 9-10 will discuss retrieval, token reduction, distillation, small models and tiered compute, with emphasis on separating token-count reduction from per-token compute-cost reduction.
 
 1. Chapter 11 will treat agents as production systems, focusing on idempotency, optimistic locking, state machines, retries, degradation, escalation, observability, audit, replay and reconciliation.
 

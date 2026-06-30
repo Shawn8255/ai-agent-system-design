@@ -27,7 +27,7 @@ Part I completes the first three chapters. Chapter 1 establishes the system-leve
 | Chapter 7 | Context Engineering and Query Optimization | Planned |
 | Chapter 8 | AGENTS.md as a Prompt Index | Planned |
 | Chapter 9 | Retrieval and Context Routing | Planned |
-| Chapter 10 | Distillation, Small Models and Tiered Compute | Planned |
+| Chapter 10 | Token Reduction, Distillation and Tiered Compute | Planned |
 | Chapter 11 | Agent Production Reliability: Idempotency, State Machines and Replay | Planned |
 | Chapter 12 | Multi-Agent, Concurrent Scheduling and Multi-Tenancy | Planned |
 | Chapter 13 | Agent Security: Prompt Injection, Sandboxes and Capability Boundaries | Planned |

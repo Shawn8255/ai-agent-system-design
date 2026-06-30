@@ -12,6 +12,8 @@
 - [ ] Expand the future chapter plan around agent production reliability: idempotency, optimistic locking, state machines, retries, degradation, escalation, observability, audit, replay and reconciliation.
 - [ ] Add a dedicated agent security chapter plan covering prompt injection as exploit, sandboxing, least privilege, capability boundaries and audit.
 - [ ] Add a concurrent scheduling thread for multi-agent and multi-tenant execution in the later Agent OS chapters.
+- [ ] Expand Chapter 10 around the token-cost model: call count, tokens per call and cost per token.
+- [ ] Turn the distillation-vs-token-reduction argument into a publishable X thread with the cost-factor table.
 - [ ] Update DOCX/PDF release sources after the Markdown chapter plan is reviewed.
 
 ## Explicitly Not Started

@@ -7,3 +7,4 @@ This directory contains the Markdown version extracted from the English DOCX sou
 - [Chapter 2. LLM as a New Compute Engine](02-llm-compute-engine.md)
 - [Chapter 3. Agent as an Orchestrator](03-agent-orchestrator.md)
 - [Plan for the Remaining Chapters](99-future-chapters.md)
+- [Publication and open source notes](notes/publication-strategy.md)

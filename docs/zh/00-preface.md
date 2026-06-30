@@ -27,7 +27,7 @@
 | 第 7 章 | Context Engineering 与 Query Optimization | 后续 |
 | 第 8 章 | AGENTS.md 与 Prompt Index | 后续 |
 | 第 9 章 | RAG、Retrieval 与 Context Routing | 后续 |
-| 第 10 章 | Distillation、Small Model 与 Tiered Compute | 后续 |
+| 第 10 章 | Token Reduction、Distillation 与 Tiered Compute | 后续 |
 | 第 11 章 | Agent 生产可靠性：幂等、状态机与回放 | 后续 |
 | 第 12 章 | Multi-Agent、并发调度与多租户 | 后续 |
 | 第 13 章 | Agent 安全：Prompt Injection、Sandbox 与权限边界 | 后续 |

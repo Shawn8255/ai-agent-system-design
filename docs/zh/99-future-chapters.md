@@ -10,7 +10,7 @@
 
 1. 第 7-8 章将把 Context Engineering、AGENTS.md 与数据库优化建立联系。
 
-1. 第 9-10 章将讨论 Retrieval、Distillation、Small Model 和分层计算。
+1. 第 9-10 章将讨论 Retrieval、Token Reduction、Distillation、Small Model 和分层计算，重点拆开“减少 token 量”和“降低单 token 算力成本”这两条不同优化轴。
 
 1. 第 11 章将把 Agent 当成生产系统来讨论，重点包括幂等、乐观锁、状态机、retry、降级、升级、可观测、审计、回放和对账。
 
