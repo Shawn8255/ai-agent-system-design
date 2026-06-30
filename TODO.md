@@ -8,6 +8,9 @@
 - [x] Draft Chapter 4: Memory, Tools and Planner.
 - [x] Draft Chapter 5: Compute / Storage Separation.
 - [x] Draft Chapter 6: Stateless Agent.
+- [x] Draft Chapter 7: Context Engineering and Query Optimization.
+- [x] Draft Chapter 8: AGENTS.md as Prompt Index.
+- [x] Draft Chapter 9: Retrieval and Context Routing.
 - [x] Preserve the terminology table.
 - [x] Preserve the chapter plan.
 - [x] Review bilingual terminology consistency before any public release.
@@ -21,7 +24,7 @@
 
 ## Explicitly Not Started
 
-- [ ] New drafted prose for Chapters 7-14.
+- [ ] New drafted prose for Chapters 10-14.
 
 ## Maintenance
 

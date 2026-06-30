@@ -1,8 +1,8 @@
 # AI Agent System Design
 
-From Classical Computer Engineering to Modern Agent Architectures - Part I: Chapters 1-6
+From Classical Computer Engineering to Modern Agent Architectures - Part I: Chapters 1-9
 
-*Working Draft v0.4 - 2026-06-30*
+*Working Draft v0.5 - 2026-06-30*
 
 ## Preface
 
@@ -10,7 +10,7 @@ This document is not an API tutorial and not a transcript of a conversation. It 
 
 The central thesis is simple: LLMs were the breakthrough, but once LLMs are placed inside real products and workflows, the hard problems start to look familiar again. We need to manage state, reduce expensive remote calls, decide what to load into context, route requests to different compute layers, and design systems that remain observable, reliable, and scalable.
 
-Part I completes the first six chapters. Chapter 1 establishes the system-level viewpoint. Chapter 2 reframes the LLM as a compute engine. Chapter 3 explains why an agent is better understood as an orchestrator. Chapter 4 separates the responsibilities of memory, tools and planner. Chapter 5 discusses compute/storage separation. Chapter 6 explains why stateless agents resemble microservice design.
+Part I completes the first nine chapters. Chapter 1 establishes the system-level viewpoint. Chapter 2 reframes the LLM as a compute engine. Chapter 3 explains why an agent is better understood as an orchestrator. Chapter 4 separates the responsibilities of memory, tools and planner. Chapter 5 discusses compute/storage separation. Chapter 6 explains why stateless agents resemble microservice design. Chapters 7-9 discuss context engineering, AGENTS.md and retrieval / context routing.
 
 > Core thesis: the LLM is a new compute engine, while the agent is the orchestrator that manages context, tools, state recovery and resource scheduling around it.
 
@@ -24,9 +24,9 @@ Part I completes the first six chapters. Chapter 1 establishes the system-level 
 | Chapter 4 | Memory, Tools and Planner | Complete |
 | Chapter 5 | Compute / Storage Separation | Complete |
 | Chapter 6 | Stateless Agents | Complete |
-| Chapter 7 | Context Engineering and Query Optimization | Planned |
-| Chapter 8 | AGENTS.md as a Prompt Index | Planned |
-| Chapter 9 | Retrieval and Context Routing | Planned |
+| Chapter 7 | Context Engineering and Query Optimization | Complete |
+| Chapter 8 | AGENTS.md as a Prompt Index | Complete |
+| Chapter 9 | Retrieval and Context Routing | Complete |
 | Chapter 10 | Token Reduction, Distillation and Tiered Compute | Planned |
 | Chapter 11 | Agent Production Reliability: Idempotency, State Machines and Replay | Planned |
 | Chapter 12 | Multi-Agent, Concurrent Scheduling and Multi-Tenancy | Planned |
@@ -44,6 +44,8 @@ Part I completes the first six chapters. Chapter 1 establishes the system-level 
 | Tool | External capability such as files, mail, calendar, GitHub or shell | RPC / API |
 | Planner | Component that decomposes tasks, orders steps and decides whether to continue, retry or escalate | Workflow Engine / Scheduler |
 | Context Builder | Component that selects the current request's working set from memory, files, tool results and task state | Query Optimizer / Buffer Manager |
+| Context Routing | Process of selecting information sources and constructing context based on task, permissions, state and cost | Query Planner / Router |
+| Prompt Index | Index structure that helps an agent locate project knowledge with low context cost | Database Index / Routing Table |
 | Distillation | Moving capability from a large model to a smaller model or fixed workflow | Precomputation / Tiered Compute |
 | Sandbox | An isolated environment that limits an agent's tool, file, network and code execution privileges | OS Process / Container |
 | Idempotency | An execution constraint that makes retries safe from duplicate side effects | Payment Idempotency / Exactly-once Boundary |
