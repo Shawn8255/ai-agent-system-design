@@ -18,12 +18,18 @@ This repository now keeps the editable book source in Markdown, extracted from t
 
 ## Source Files
 
-The original DOCX and PDF release artifacts remain under `releases/`.
+The original DOCX and PDF release artifacts remain under `releases/`. The latest generated release is `v0.3`, built from the Markdown source.
 
 Markdown can be regenerated from the DOCX files with:
 
 ```bash
 python3 tools/docx_to_markdown.py
+```
+
+DOCX/PDF releases can be regenerated from the Markdown source with:
+
+```bash
+python3 tools/markdown_to_release.py
 ```
 
 Use the bundled Codex Python runtime if available, because it includes `python-docx`.
