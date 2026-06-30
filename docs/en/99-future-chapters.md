@@ -1,12 +1,10 @@
 # Plan for the Remaining Chapters
 
-Part I completes the foundational system perspective. Later chapters will continue the same line of reasoning: how memory maps to storage, how stateless agents map to stateless services, why context engineering resembles query optimization, why AGENTS.md can act like an index, and why distillation and small models fit naturally into tiered compute.
+Part I now completes the first six chapters of the foundational system perspective. Later chapters will continue the same line of reasoning: why context engineering resembles query optimization, why AGENTS.md can act like an index, how retrieval becomes context routing, and why distillation and small models fit naturally into tiered compute.
 
 The next stage should also add three engineering themes that strengthen the book's differentiation. First, agent security should not remain a footnote. Operating-system security models will migrate into agent systems: prompt injection behaves more like an exploit, tool use needs capability boundaries, and code or external-system access needs sandboxing. Second, concurrent scheduling is where the OS analogy becomes most literal. Multi-agent, multi-tenant execution, task queues and resource isolation go beyond the single-task Planner-to-Scheduler analogy. Third, agents should be treated as production systems: they need SLAs, idempotency, optimistic locking, state machines, retries, degradation, escalation, observability, audit, replay and reconciliation. This production reliability perspective is the main difference from OS-analogy papers that focus mostly on architecture and runnable prototypes.
 
-1. Chapter 4 will separate the responsibilities of memory, tools and planner.
-
-1. Chapters 5-6 will focus on compute/storage separation and stateless agents.
+1. Chapters 1-6 have established the core architecture line from LLMs and agents to memory / tools / planner, compute/storage separation and stateless agents.
 
 1. Chapters 7-8 will connect context engineering and AGENTS.md with database optimization.
 

@@ -2,7 +2,7 @@
 
 A bilingual technical book about AI Agent system design from the perspective of classical computer engineering.
 
-This repository now keeps the editable book source in Markdown, extracted from the DOCX releases for Part I, Chapters 1-3.
+This repository keeps the editable book source in Markdown. Chapters 1-3 were extracted from the original DOCX releases, and Chapters 4-6 continue the same system-design line.
 
 ## Languages
 
@@ -11,20 +11,22 @@ This repository now keeps the editable book source in Markdown, extracted from t
 
 ## Current Scope
 
-- Chapters 1-3 are extracted from the existing DOCX source files and should preserve the current meaning.
-- Chapter 4 and later chapters are represented only in the chapter plan.
+- Chapters 1-6 are complete in Markdown.
+- Chapter 7 and later chapters are represented only in the chapter plan.
 - The terminology table and chapter plan are maintained in each language's `00-preface.md`.
 - The expanded future plan now includes agent production reliability, concurrent scheduling, multi-tenancy, and security/sandboxing as first-class topics.
 
 ## Source Files
 
-The original DOCX and PDF release artifacts remain under `releases/`. The latest generated release is `v0.3`, built from the Markdown source.
+The original DOCX and PDF release artifacts remain under `releases/`. The latest generated release is `v0.4`, built from the Markdown source for Chapters 1-6.
 
-Markdown can be regenerated from the DOCX files with:
+The historical Chapters 1-3 Markdown extraction can be regenerated from the original DOCX files with:
 
 ```bash
 python3 tools/docx_to_markdown.py
 ```
+
+That extractor is only for the original DOCX source conversion. The current authored source of truth is Markdown under `docs/`.
 
 DOCX/PDF releases can be regenerated from the Markdown source with:
 

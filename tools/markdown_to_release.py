@@ -37,6 +37,9 @@ BOOK_FILES = [
     "01-classical-computer-engineering.md",
     "02-llm-compute-engine.md",
     "03-agent-orchestrator.md",
+    "04-memory-tool-planner.md",
+    "05-compute-storage-separation.md",
+    "06-stateless-agent.md",
     "99-future-chapters.md",
 ]
 
@@ -341,24 +344,24 @@ def convert_docx_to_pdf(docx_path: Path, pdf_path: Path) -> None:
 
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
-    version = "v0.3"
+    version = "v0.4"
     configs = [
         ReleaseConfig(
             lang="zh",
             title="AI Agent 系统设计",
-            subtitle="从经典计算机工程到现代智能体架构 - 第一部分：前三章完整版",
+            subtitle="从经典计算机工程到现代智能体架构 - 第一部分：前六章完整版",
             source_dir=root / "docs/zh",
-            docx_path=root / f"releases/docx/AI_Agent_System_Design_CN_Part1_Ch1-3_{version}.docx",
-            pdf_path=root / f"releases/pdf/AI_Agent_System_Design_CN_Part1_Ch1-3_{version}.pdf",
+            docx_path=root / f"releases/docx/AI_Agent_System_Design_CN_Part1_Ch1-6_{version}.docx",
+            pdf_path=root / f"releases/pdf/AI_Agent_System_Design_CN_Part1_Ch1-6_{version}.pdf",
             font="Arial",
         ),
         ReleaseConfig(
             lang="en",
             title="AI Agent System Design",
-            subtitle="From Classical Computer Engineering to Modern Agent Architectures - Part I: Chapters 1-3",
+            subtitle="From Classical Computer Engineering to Modern Agent Architectures - Part I: Chapters 1-6",
             source_dir=root / "docs/en",
-            docx_path=root / f"releases/docx/AI_Agent_System_Design_EN_Part1_Ch1-3_{version}.docx",
-            pdf_path=root / f"releases/pdf/AI_Agent_System_Design_EN_Part1_Ch1-3_{version}.pdf",
+            docx_path=root / f"releases/docx/AI_Agent_System_Design_EN_Part1_Ch1-6_{version}.docx",
+            pdf_path=root / f"releases/pdf/AI_Agent_System_Design_EN_Part1_Ch1-6_{version}.pdf",
             font="Arial",
         ),
     ]

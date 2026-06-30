@@ -1,8 +1,8 @@
 # AI Agent 系统设计
 
-从经典计算机工程到现代智能体架构 - 第一部分：前三章完整版
+从经典计算机工程到现代智能体架构 - 第一部分：前六章完整版
 
-*Working Draft v0.2 - 2026-06-29*
+*Working Draft v0.4 - 2026-06-30*
 
 ## 前言
 
@@ -10,7 +10,7 @@
 
 本文的基本观点是：LLM 是最近几年 AI 的核心突破，但当 LLM 被放进真实产品和真实工作流之后，很多问题又重新回到了计算机工程最熟悉的领域：如何管理状态、如何降低远程调用成本、如何做缓存和索引、如何保持服务无状态、如何在多个计算资源之间调度。
 
-第一部分先完成前三章：第 1 章建立整体视角；第 2 章把 LLM 放回“计算引擎”的位置；第 3 章说明 Agent 为什么更像 Orchestrator，而不是简单的聊天机器人。
+第一部分先完成前六章：第 1 章建立整体视角；第 2 章把 LLM 放回“计算引擎”的位置；第 3 章说明 Agent 为什么更像 Orchestrator；第 4 章拆清 Memory、Tool 与 Planner 的职责边界；第 5 章讨论 Compute / Storage Separation；第 6 章说明 Stateless Agent 为什么接近微服务设计。
 
 > 核心主线：LLM 是新的 Compute Engine，Agent 是围绕它进行上下文管理、工具调用、状态恢复和资源调度的 Orchestrator。
 
@@ -21,9 +21,9 @@
 | 第 1 章 | 为什么 AI Agent 让我想到了经典计算机工程 | 已完成 |
 | 第 2 章 | LLM：一种新的 Compute Engine | 已完成 |
 | 第 3 章 | Agent：为什么它更像 Orchestrator | 已完成 |
-| 第 4 章 | Memory、Tool 与 Planner 在 Agent 中的职责 | 后续 |
-| 第 5 章 | Compute / Storage Separation 在 AI 中的体现 | 后续 |
-| 第 6 章 | Stateless Agent 与微服务设计 | 后续 |
+| 第 4 章 | Memory、Tool 与 Planner 在 Agent 中的职责 | 已完成 |
+| 第 5 章 | Compute / Storage Separation 在 AI 中的体现 | 已完成 |
+| 第 6 章 | Stateless Agent 与微服务设计 | 已完成 |
 | 第 7 章 | Context Engineering 与 Query Optimization | 后续 |
 | 第 8 章 | AGENTS.md 与 Prompt Index | 后续 |
 | 第 9 章 | RAG、Retrieval 与 Context Routing | 后续 |
@@ -42,6 +42,8 @@
 | Memory | 长期保存的用户偏好、项目背景和任务状态 | Database / Cache |
 | Context | 本次请求真正送入模型的工作集 | Working Set / Buffer Pool |
 | Tool | Agent 可调用的外部能力，例如文件、邮件、日历、GitHub、Shell | RPC / API |
+| Planner | 拆解任务、排序步骤并决定是否继续、重试或升级的组件 | Workflow Engine / Scheduler |
+| Context Builder | 从 Memory、文件、工具结果和任务状态中选择当前请求 working set 的组件 | Query Optimizer / Buffer Manager |
 | Distillation | 把大模型能力迁移到小模型或固定工作流 | Precomputation / Tiered Compute |
 | Sandbox | 限制 Agent 工具、文件、网络和代码执行权限的隔离环境 | OS Process / Container |
 | Idempotency | 保证重试不会重复产生副作用的执行约束 | Payment Idempotency / Exactly-once Boundary |

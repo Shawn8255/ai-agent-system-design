@@ -178,7 +178,7 @@ def render_language(config: LanguageConfig) -> None:
 def write_language_readme(config: LanguageConfig) -> None:
     if config.code == "zh":
         title = "中文文档"
-        intro = "本目录包含从中文 DOCX 源文件抽取出的 Markdown 版本。前三章保持原有含义，后续章节仅保留写作计划。"
+        intro = "本目录包含从中文 DOCX 源文件抽取出的历史 Markdown 版本。该提取器只覆盖原始 DOCX 中的第 1-3 章。"
         links = [
             ("前言、目录大纲与术语约定", SECTION_FILES["front"]),
             ("第 1 章 为什么 AI Agent 让我想到了经典计算机工程", SECTION_FILES["chapter1"]),
@@ -188,7 +188,7 @@ def write_language_readme(config: LanguageConfig) -> None:
         ]
     else:
         title = "English Documentation"
-        intro = "This directory contains the Markdown version extracted from the English DOCX source. Chapters 1-3 preserve the source meaning, and later chapters remain a plan only."
+        intro = "This directory contains the historical Markdown version extracted from the English DOCX source. This extractor only covers Chapters 1-3 from the original DOCX."
         links = [
             ("Preface, chapter plan and terminology", SECTION_FILES["front"]),
             ("Chapter 1. Why AI Agents Remind Me of Classical Computer Engineering", SECTION_FILES["chapter1"]),
