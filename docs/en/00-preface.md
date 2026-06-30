@@ -1,0 +1,47 @@
+# AI Agent System Design
+
+From Classical Computer Engineering to Modern Agent Architectures - Part I: Chapters 1-3
+
+*Working Draft v0.2 - 2026-06-29*
+
+## Preface
+
+This document is not an API tutorial and not a transcript of a conversation. It is a technical essay written from the perspective of software engineering and distributed systems. Its goal is to explain why modern AI agents increasingly resemble classical computer systems.
+
+The central thesis is simple: LLMs were the breakthrough, but once LLMs are placed inside real products and workflows, the hard problems start to look familiar again. We need to manage state, reduce expensive remote calls, decide what to load into context, route requests to different compute layers, and design systems that remain observable, reliable, and scalable.
+
+Part I completes the first three chapters. Chapter 1 establishes the system-level viewpoint. Chapter 2 reframes the LLM as a compute engine. Chapter 3 explains why an agent is better understood as an orchestrator than as a chatbot.
+
+> Core thesis: the LLM is a new compute engine, while the agent is the orchestrator that manages context, tools, state recovery and resource scheduling around it.
+
+## Table of Contents
+
+| Chapter | Title | Status |
+| --- | --- | --- |
+| Chapter 1 | Why AI Agents Remind Me of Classical Computer Engineering | Complete |
+| Chapter 2 | LLM as a New Compute Engine | Complete |
+| Chapter 3 | Agent as an Orchestrator | Complete |
+| Chapter 4 | Memory, Tools and Planner | Planned |
+| Chapter 5 | Compute / Storage Separation | Planned |
+| Chapter 6 | Stateless Agents | Planned |
+| Chapter 7 | Context Engineering and Query Optimization | Planned |
+| Chapter 8 | AGENTS.md as a Prompt Index | Planned |
+| Chapter 9 | Retrieval and Context Routing | Planned |
+| Chapter 10 | Distillation, Small Models and Tiered Compute | Planned |
+| Chapter 11 | Multi-Agent Systems and Distributed Systems | Planned |
+| Chapter 12 | Toward an Agent Operating System | Planned |
+
+## Terminology
+
+| Term | Meaning in this document | Engineering analogy |
+| --- | --- | --- |
+| LLM | Large language model used for inference | Compute Engine |
+| Agent | System layer that organizes memory, tools, planning and context | Orchestrator / Runtime |
+| Memory | Long-term preferences, project context and task state | Database / Cache |
+| Context | The working set sent to the model for the current request | Working Set / Buffer Pool |
+| Tool | External capability such as files, mail, calendar, GitHub or shell | RPC / API |
+| Distillation | Moving capability from a large model to a smaller model or fixed workflow | Precomputation / Tiered Compute |
+
+![Figure 1](assets/figure-01.png)
+
+Figure 1. The discussion is shifting from model-centric AI to system-centric agent design.
