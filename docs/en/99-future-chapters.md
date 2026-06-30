@@ -1,17 +1,29 @@
-# Plan for the Remaining Chapters
+# Future Revision Notes
 
-Part I now completes the first nine chapters of the foundational system perspective. Later chapters will continue the same line of reasoning into the cost boundary between token reduction and distillation, production reliability, multi-agent / multi-tenant scheduling, agent security and agent OS.
+Part I now has a complete Chapter 1-14 draft. Future work should focus on public release quality, reader feedback and stronger examples rather than adding more chapters.
 
-The next stage should also add three engineering themes that strengthen the book's differentiation. First, agent security should not remain a footnote. Operating-system security models will migrate into agent systems: prompt injection behaves more like an exploit, tool use needs capability boundaries, and code or external-system access needs sandboxing. Second, concurrent scheduling is where the OS analogy becomes most literal. Multi-agent, multi-tenant execution, task queues and resource isolation go beyond the single-task Planner-to-Scheduler analogy. Third, agents should be treated as production systems: they need SLAs, idempotency, optimistic locking, state machines, retries, degradation, escalation, observability, audit, replay and reconciliation. This production reliability perspective is the main difference from OS-analogy papers that focus mostly on architecture and runnable prototypes.
+## 1. References and Literature
 
-1. Chapters 1-9 have established the core architecture line from LLMs and agents to memory / tools / planner, compute/storage separation, stateless agents, context engineering, prompt indexes and context routing.
+Later revisions should add fuller references for key claims, especially around AIOS, MemGPT, Compound AI Systems, LLM OS, prompt injection, sandboxing, agent security and multi-agent scheduling. The positioning should remain explicit: this book does not claim to invent those concepts. It organizes them through distributed systems and production reliability.
 
-1. Chapter 10 will discuss token reduction, distillation, small models and tiered compute, with emphasis on separating token-count reduction from per-token compute-cost reduction.
+## 2. Cases and Examples
 
-1. Chapter 11 will treat agents as production systems, focusing on idempotency, optimistic locking, state machines, retries, degradation, escalation, observability, audit, replay and reconciliation.
+Chapter 10 can add a cost-optimization example that separately accounts for call count, tokens per call and cost per token. Chapter 11 can add a payment idempotency or order state-machine analogy to explain why agent tool calls need idempotency, replay and reconciliation. Chapters 12-13 can add pseudo-flows for scheduling and security incidents.
 
-1. Chapter 12 will cover multi-agent, multi-tenant and concurrent scheduling, moving the Planner-to-Scheduler analogy from single-task execution to resource contention and orchestration.
+## 3. Public Writing Material
 
-1. Chapter 13 will add the missing agent security model, including prompt injection as exploit, tool capability boundaries, sandboxing, least privilege and audit.
+The Chapter 10 argument that "distillation does not directly reduce tokens" is a good candidate for an X thread. The anchor can be:
 
-1. Chapter 14 will return to the agent operating system idea and connect memory, tools, planning, security, scheduling and production reliability into one system view.
+```text
+Total cost ~= call count x tokens per call x cost per token
+```
+
+This formula makes the separation clear: context engineering mostly reduces token volume, planner limits and caching reduce call count, and distillation plus routing reduce per-token cost.
+
+## 4. Bilingual Consistency
+
+Whenever the Chinese prose changes, the English version should be checked for an equivalent update. The terminology table should keep LLM, Agent, Memory, Context, Tool, Planner, Context Routing, Distillation, Sandbox, Idempotency, Replay, Scheduler, Capability Boundary and Agent OS stable.
+
+## 5. Release Checklist
+
+Before a public release, run one full release pass: Markdown links, DOCX/PDF generation, figure rendering, chapter status, README wording, license choice and contribution boundaries. The manuscript can accept errata, examples and translation improvements, while the main structure should remain author-maintained.

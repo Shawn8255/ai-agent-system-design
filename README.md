@@ -2,7 +2,7 @@
 
 A bilingual technical book about AI Agent system design from the perspective of classical computer engineering.
 
-This repository keeps the editable book source in Markdown. Chapters 1-3 were extracted from the original DOCX releases, and Chapters 4-9 continue the same system-design line.
+This repository keeps the editable book source in Markdown. Chapters 1-3 were extracted from the original DOCX releases, and Chapters 4-14 continue the same system-design line as a complete Part I draft.
 
 ## Languages
 
@@ -11,14 +11,13 @@ This repository keeps the editable book source in Markdown. Chapters 1-3 were ex
 
 ## Current Scope
 
-- Chapters 1-9 are complete in Markdown.
-- Chapter 10 and later chapters are represented only in the chapter plan.
+- Chapters 1-14 are complete in Markdown as the current Part I draft.
 - The terminology table and chapter plan are maintained in each language's `00-preface.md`.
-- The expanded future plan now includes agent production reliability, concurrent scheduling, multi-tenancy, and security/sandboxing as first-class topics.
+- The final chapters cover token cost, production reliability, concurrent scheduling, multi-tenancy, security/sandboxing, and the Agent OS synthesis as first-class topics.
 
 ## Source Files
 
-The original DOCX and PDF release artifacts remain under `releases/`. The latest generated release is `v0.5`, built from the Markdown source for Chapters 1-9.
+The original DOCX and PDF release artifacts remain under `releases/`. The latest generated release is `v0.6`, built from the Markdown source for Chapters 1-14.
 
 The historical Chapters 1-3 Markdown extraction can be regenerated from the original DOCX files with:
 

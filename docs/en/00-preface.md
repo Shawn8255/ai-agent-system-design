@@ -1,8 +1,8 @@
 # AI Agent System Design
 
-From Classical Computer Engineering to Modern Agent Architectures - Part I: Chapters 1-9
+From Classical Computer Engineering to Modern Agent Architectures - Part I: Chapters 1-14
 
-*Working Draft v0.5 - 2026-06-30*
+*Working Draft v0.6 - 2026-06-30*
 
 ## Preface
 
@@ -10,7 +10,7 @@ This document is not an API tutorial and not a transcript of a conversation. It 
 
 The central thesis is simple: LLMs were the breakthrough, but once LLMs are placed inside real products and workflows, the hard problems start to look familiar again. We need to manage state, reduce expensive remote calls, decide what to load into context, route requests to different compute layers, and design systems that remain observable, reliable, and scalable.
 
-Part I completes the first nine chapters. Chapter 1 establishes the system-level viewpoint. Chapter 2 reframes the LLM as a compute engine. Chapter 3 explains why an agent is better understood as an orchestrator. Chapter 4 separates the responsibilities of memory, tools and planner. Chapter 5 discusses compute/storage separation. Chapter 6 explains why stateless agents resemble microservice design. Chapters 7-9 discuss context engineering, AGENTS.md and retrieval / context routing.
+Part I completes the first fourteen chapters. Chapter 1 establishes the system-level viewpoint. Chapter 2 reframes the LLM as a compute engine. Chapter 3 explains why an agent is better understood as an orchestrator. Chapter 4 separates the responsibilities of memory, tools and planner. Chapter 5 discusses compute/storage separation. Chapter 6 explains why stateless agents resemble microservice design. Chapters 7-9 discuss context engineering, AGENTS.md and retrieval / context routing. Chapters 10-14 add the cost model, production reliability, concurrent scheduling, security and the Agent OS synthesis.
 
 > Core thesis: the LLM is a new compute engine, while the agent is the orchestrator that manages context, tools, state recovery and resource scheduling around it.
 
@@ -27,11 +27,11 @@ Part I completes the first nine chapters. Chapter 1 establishes the system-level
 | Chapter 7 | Context Engineering and Query Optimization | Complete |
 | Chapter 8 | AGENTS.md as a Prompt Index | Complete |
 | Chapter 9 | Retrieval and Context Routing | Complete |
-| Chapter 10 | Token Reduction, Distillation and Tiered Compute | Planned |
-| Chapter 11 | Agent Production Reliability: Idempotency, State Machines and Replay | Planned |
-| Chapter 12 | Multi-Agent, Concurrent Scheduling and Multi-Tenancy | Planned |
-| Chapter 13 | Agent Security: Prompt Injection, Sandboxes and Capability Boundaries | Planned |
-| Chapter 14 | Toward an Agent Operating System | Planned |
+| Chapter 10 | Token Reduction, Distillation and Tiered Compute | Complete |
+| Chapter 11 | Agent Production Reliability: Idempotency, State Machines and Replay | Complete |
+| Chapter 12 | Multi-Agent, Concurrent Scheduling and Multi-Tenancy | Complete |
+| Chapter 13 | Agent Security: Prompt Injection, Sandboxes and Capability Boundaries | Complete |
+| Chapter 14 | Toward an Agent Operating System | Complete |
 
 ## Terminology
 
@@ -50,6 +50,9 @@ Part I completes the first nine chapters. Chapter 1 establishes the system-level
 | Sandbox | An isolated environment that limits an agent's tool, file, network and code execution privileges | OS Process / Container |
 | Idempotency | An execution constraint that makes retries safe from duplicate side effects | Payment Idempotency / Exactly-once Boundary |
 | Replay | Reconstructing agent execution, tool calls and state transitions for debugging, audit and reconciliation | Event Log / Audit Trail |
+| Scheduler | System component that allocates resources across agents, tasks and tenants | OS Scheduler / Resource Manager |
+| Capability Boundary | Explicit permission boundary for tools, resources, operations and parameters | Permission Model / Capability System |
+| Agent OS | Runtime layer that manages agent context, tools, state, scheduling, security and reliability | Operating System / Runtime |
 
 ![Figure 1](assets/figure-01.png)
 

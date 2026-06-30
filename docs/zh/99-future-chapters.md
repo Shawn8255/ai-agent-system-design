@@ -1,17 +1,29 @@
-# 后续章节写作计划
+# 后续修订方向
 
-第一部分已经完成前九章的基础架构视角。后续章节将沿着这条主线继续展开：Token Reduction 与 Distillation 的成本边界，Agent 作为生产系统的可靠性问题，多 Agent / 多租户调度，以及 Agent 安全和 Agent OS。
+第一部分已经完成第 1-14 章的完整草稿。后续工作不再是继续追加章节，而是围绕公开发布、读者反馈和案例补强进行修订。
 
-后续写作还需要补上三块更能体现工程差异化的内容。第一，Agent 安全不能只作为风险提示处理。OS 的安全模型会迁移到 Agent 系统里：Prompt Injection 更接近 exploit，工具调用需要权限边界，代码执行和外部系统访问需要 Sandbox。第二，并发调度是 OS 类比最直接的一部分，多 Agent、多租户、多任务队列和资源隔离，比单任务 Planner 更接近 Scheduler。第三，Agent 应该被当成生产系统来讨论：它需要 SLA、幂等、乐观锁、状态机、Retry、降级、升级、可观测、审计、回放和对账。这是本文区别于只讨论“能跑起来”的 OS-analogy 架构文章的重点。
+## 1. 引用与文献
 
-1. 第 1-9 章已经建立从 LLM、Agent、Memory / Tool / Planner、Compute / Storage Separation、Stateless Agent 到 Context Engineering、Prompt Index 和 Context Routing 的基础架构主线。
+后续需要为关键论点补充更完整的引用，尤其是 AIOS、MemGPT、Compound AI Systems、LLM OS、Prompt Injection、Sandbox、Agent 安全和多 Agent 调度相关资料。本文的定位应保持清晰：它不是重新发明这些概念，而是把它们放进分布式系统和生产可靠性的工程视角里。
 
-1. 第 10 章将讨论 Token Reduction、Distillation、Small Model 和分层计算，重点拆开“减少 token 量”和“降低单 token 算力成本”这两条不同优化轴。
+## 2. 案例与例子
 
-1. 第 11 章将把 Agent 当成生产系统来讨论，重点包括幂等、乐观锁、状态机、retry、降级、升级、可观测、审计、回放和对账。
+第 10 章可以补一个成本优化案例，把调用次数、单次 token 量和单 token 成本分别算清楚。第 11 章可以补一个“支付幂等 / 订单状态机”类比案例，用更具体的工程流程解释 Agent 工具调用为什么需要幂等、回放和对账。第 12-13 章可以补调度和安全事件的伪流程。
 
-1. 第 12 章将讨论 Multi-Agent、多租户和并发调度，把 Planner 与 Scheduler 的类比从单任务执行推进到资源竞争和任务编排。
+## 3. 公开发布素材
 
-1. 第 13 章将补上 Agent 安全模型，重点包括 Prompt Injection 作为 exploit、工具权限边界、Sandbox、最小权限和审计。
+第 10 章关于“蒸馏不是直接减少 token”的内容适合拆成独立 X thread。核心表达可以围绕：
 
-1. 第 14 章将回到 Agent Operating System，把 Memory、Tool、Planner、安全、调度和生产可靠性放回统一系统视角。
+```text
+总成本 ≈ 调用次数 × 单次 token 量 × 单 token 成本
+```
+
+这条公式可以作为公开传播的锚点：Context Engineering 主要减少 token 量，Planner 和缓存减少调用次数，Distillation 与 Routing 降低单 token 成本。
+
+## 4. 双语一致性
+
+后续每次修改中文正文时，都应该同步检查英文版本是否需要等价更新。术语表中的 LLM、Agent、Memory、Context、Tool、Planner、Context Routing、Distillation、Sandbox、Idempotency、Replay、Scheduler、Capability Boundary 和 Agent OS 应保持稳定。
+
+## 5. 发行检查
+
+正式公开前需要执行一次发行检查：Markdown 链接、DOCX/PDF 生成、图表显示、目录状态、README 说明、License 选择和贡献边界。书稿可以接受勘误、补例子和翻译改进，但主线结构应保持由作者维护。
