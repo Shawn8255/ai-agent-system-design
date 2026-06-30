@@ -46,10 +46,12 @@ This repository contains a bilingual Markdown edition of a technical book on AI 
 ## Structure
 
 - `docs/zh/00-preface.md` and `docs/en/00-preface.md` contain the preface, chapter plan, terminology table, and first figure.
-- `01-*` through `13-*` contain Chapters 1-13.
+- `01-*` through `13-*` contain Chapters 1-13. Chapter 7 covers context engineering together with AGENTS.md as a prompt index (the former separate AGENTS.md chapter was merged in).
+- `98-references.md` contains the bilingual reference appendix and is included in generated releases.
 - `99-future-chapters.md` contains future revision notes rather than planned chapter prose.
 - `assets/` folders contain figures extracted from the DOCX files.
 - `releases/docx` and `releases/pdf` contain generated release artifacts.
+- The repository is licensed under CC BY 4.0 (`LICENSE`) for book content.
 
 ## Regeneration
 

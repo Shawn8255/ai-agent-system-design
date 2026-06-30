@@ -8,14 +8,13 @@
 - [x] Draft Chapter 4: Memory, Tools and Planner.
 - [x] Draft Chapter 5: Compute / Storage Separation.
 - [x] Draft Chapter 6: Stateless Agent.
-- [x] Draft Chapter 7: Context Engineering and Query Optimization.
-- [x] Draft Chapter 8: AGENTS.md as Prompt Index.
-- [x] Draft Chapter 9: Retrieval and Context Routing.
-- [x] Draft Chapter 10: Token Reduction, Distillation and Tiered Compute.
-- [x] Draft Chapter 11: Agent Production Reliability.
-- [x] Draft Chapter 12: Multi-Agent, Concurrent Scheduling and Multi-Tenancy.
-- [x] Draft Chapter 13: Agent Security.
-- [x] Draft Chapter 14: Toward an Agent Operating System.
+- [x] Draft Chapter 7: Context Engineering, Prompt Index and Query Optimization (merged the former Context Engineering and AGENTS.md chapters).
+- [x] Draft Chapter 8: Retrieval and Context Routing.
+- [x] Draft Chapter 9: Token Reduction, Distillation and Tiered Compute.
+- [x] Draft Chapter 10: Agent Production Reliability.
+- [x] Draft Chapter 11: Multi-Agent, Concurrent Scheduling and Multi-Tenancy.
+- [x] Draft Chapter 12: Agent Security.
+- [x] Draft Chapter 13: Toward an Agent Operating System.
 - [x] Preserve the terminology table.
 - [x] Preserve the chapter plan.
 - [x] Review bilingual terminology consistency before any public release.
@@ -23,14 +22,14 @@
 - [x] Expand the future chapter plan around agent production reliability: idempotency, optimistic locking, state machines, retries, degradation, escalation, observability, audit, replay and reconciliation.
 - [x] Add a dedicated agent security chapter plan covering prompt injection as exploit, sandboxing, least privilege, capability boundaries and audit.
 - [x] Add a concurrent scheduling thread for multi-agent and multi-tenant execution in the later Agent OS chapters.
-- [x] Expand Chapter 10 around the token-cost model: call count, tokens per call and cost per token.
+- [x] Expand the token chapter (now Chapter 9) around the token-cost model: call count, tokens per call and cost per token.
 - [x] Update DOCX/PDF release sources after the Markdown chapter plan is reviewed.
-- [x] Generate v0.6 DOCX/PDF release artifacts for Chapters 1-14.
+- [x] Generate the first DOCX/PDF release artifacts from Markdown.
 
 ## Maintenance
 
 - [x] Decide whether DOCX/PDF releases should continue to be generated from Markdown.
-- [x] Update `README.md`, `AGENTS.md`, `CONTRIBUTING.md`, and bilingual README files for the Chapter 1-14 draft.
+- [x] Update `README.md`, `AGENTS.md`, `CONTRIBUTING.md`, and bilingual README files for the current Chapters 1-13 draft.
 - [ ] Add a formal release checklist for public publication.
 - [x] Choose and add a text-oriented license (CC BY 4.0).
 - [x] Add citations and reference notes for the public release (`docs/{zh,en}/98-references.md`).
