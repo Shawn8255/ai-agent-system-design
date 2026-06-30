@@ -24,12 +24,18 @@
 - [x] Add a dedicated agent security chapter plan covering prompt injection as exploit, sandboxing, least privilege, capability boundaries and audit.
 - [x] Add a concurrent scheduling thread for multi-agent and multi-tenant execution in the later Agent OS chapters.
 - [x] Expand Chapter 10 around the token-cost model: call count, tokens per call and cost per token.
-- [ ] Turn the distillation-vs-token-reduction argument into a publishable X thread derived from Chapter 10.
 - [x] Update DOCX/PDF release sources after the Markdown chapter plan is reviewed.
+- [x] Generate v0.6 DOCX/PDF release artifacts for Chapters 1-14.
 
 ## Maintenance
 
 - [x] Decide whether DOCX/PDF releases should continue to be generated from Markdown.
-- [ ] Add a release checklist once the Markdown structure is stable.
+- [x] Update `README.md`, `AGENTS.md`, `CONTRIBUTING.md`, and bilingual README files for the Chapter 1-14 draft.
+- [ ] Add a formal release checklist for public publication.
+- [ ] Choose and add a text-oriented license, likely Creative Commons rather than MIT.
 - [ ] Add citations and reference notes for the public release.
 - [ ] Add examples or case studies for the production reliability chapter.
+- [ ] Add a cost optimization example to Chapter 10 using the cost model.
+- [ ] Turn the distillation-vs-token-reduction argument into a publishable X thread derived from Chapter 10.
+- [ ] Add a short English summary to the root README for overseas readers if the repository is promoted publicly.
+- [ ] Decide whether release DOCX/PDF artifacts should stay committed or move to GitHub Releases after public launch.

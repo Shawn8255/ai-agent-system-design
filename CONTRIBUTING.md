@@ -17,6 +17,12 @@ This project is maintained as a bilingual Markdown book.
 - Keep terminology consistent within and across languages.
 - When updating one language, check whether the corresponding section in the other language needs an equivalent maintenance change.
 
+## Contribution Scope
+
+Good contributions include typo fixes, broken-link fixes, terminology consistency fixes, citations, small examples, and translation improvements. Larger structural changes should start as an issue so the authorial voice and chapter flow remain coherent.
+
+The current manuscript is a single-author technical book rather than an open-ended wiki. Community changes should strengthen the existing line of argument instead of replacing the chapter structure.
+
 ## Regenerating Markdown
 
 The current Markdown was extracted from the DOCX sources with:
@@ -40,3 +46,4 @@ The script overwrites `docs/zh` and `docs/en`. After regeneration, inspect:
 - Terminology tables are preserved.
 - Chapter plan status marks Chapters 1-14 consistently across both languages.
 - Figure assets render from relative Markdown links.
+- Release artifacts are regenerated only when the Markdown source changed intentionally.

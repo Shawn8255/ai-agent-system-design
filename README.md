@@ -2,7 +2,7 @@
 
 A bilingual technical book about AI Agent system design from the perspective of classical computer engineering.
 
-This repository keeps the editable book source in Markdown. Chapters 1-3 were extracted from the original DOCX releases, and Chapters 4-14 continue the same system-design line as a complete Part I draft.
+This repository keeps the editable book source in Markdown. Chapters 1-3 were extracted from the original DOCX releases, and Chapters 4-14 continue the same system-design line as a complete Part I draft. The Markdown files under `docs/` are now the source of truth.
 
 ## Languages
 
@@ -15,9 +15,25 @@ This repository keeps the editable book source in Markdown. Chapters 1-3 were ex
 - The terminology table and chapter plan are maintained in each language's `00-preface.md`.
 - The final chapters cover token cost, production reliability, concurrent scheduling, multi-tenancy, security/sandboxing, and the Agent OS synthesis as first-class topics.
 
+## Latest Release
+
+The latest generated release is `v0.6`, built from the Markdown source for Chapters 1-14:
+
+- Chinese DOCX: `releases/docx/AI_Agent_System_Design_CN_Part1_Ch1-14_v0.6.docx`
+- Chinese PDF: `releases/pdf/AI_Agent_System_Design_CN_Part1_Ch1-14_v0.6.pdf`
+- English DOCX: `releases/docx/AI_Agent_System_Design_EN_Part1_Ch1-14_v0.6.docx`
+- English PDF: `releases/pdf/AI_Agent_System_Design_EN_Part1_Ch1-14_v0.6.pdf`
+
+## Content Map
+
+- Chapters 1-3: original foundation extracted from the DOCX sources.
+- Chapters 4-9: memory, tools, planner, storage separation, stateless agents, context engineering, prompt index, and retrieval routing.
+- Chapters 10-14: token cost, distillation, tiered compute, production reliability, concurrent scheduling, security, and Agent OS.
+- `99-future-chapters.md`: future revision notes, not planned chapter prose.
+
 ## Source Files
 
-The original DOCX and PDF release artifacts remain under `releases/`. The latest generated release is `v0.6`, built from the Markdown source for Chapters 1-14.
+The original DOCX and PDF release artifacts remain under `releases/`.
 
 The historical Chapters 1-3 Markdown extraction can be regenerated from the original DOCX files with:
 
@@ -34,3 +50,10 @@ python3 tools/markdown_to_release.py
 ```
 
 Use the bundled Codex Python runtime if available, because it includes `python-docx`.
+
+## Maintenance Notes
+
+- Update both `docs/zh` and `docs/en` when changing shared structure, chapter status, or terminology.
+- Keep Chapters 1-3 stable in meaning; prefer small corrections over rewrites.
+- Do not add Chapter 15 or later prose until the bilingual chapter plan has been intentionally extended.
+- Use `TODO.md` for publication tasks such as citations, examples, release checklist, and X thread drafts.
