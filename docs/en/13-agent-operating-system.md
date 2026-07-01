@@ -47,7 +47,25 @@ The difference is that its core resources are not only CPU and memory. They incl
 
 An Agent OS therefore does not copy a traditional OS. It reinvents a runtime for intelligent workflows after the LLM becomes a compute engine.
 
-## 13.6 A Possible Architecture Path
+## 13.6 Standards and Portability Across Agent Runtimes
+
+Everything discussed so far is design "inside one runtime." But the reality is that there are many agent runtimes — different coding agents, different frameworks, different products — each with its own memory structure, tool interface and context format. The same project, the same memory, the same skill may have to be rewritten when you move to another agent. This resembles the early operating-system situation of "one interface per machine."
+
+Computer engineering did not solve this by making all implementations identical. It standardized interfaces while leaving implementation free: POSIX standardized system calls so programs could port across Unixes; TCP/IP standardized the protocol so heterogeneous networks could interoperate. The agent ecosystem is growing similar things — MCP is standardizing the tool-call protocol, and AGENTS.md is becoming the de facto format for project-level instructions. Their value is not any single vendor; it is making "tools" and "project conventions" portable.
+
+The key is separating what should be standardized from what is an implementation detail. What should be standardized are the interfaces: the tool-call protocol, the exchange format for context and memory, the way capabilities are declared, and the entry-point convention for project instructions. What should be left free per runtime is the implementation: which vector store, how to schedule, how to cache, which internal model. Confusing the two produces two bad outcomes — either the standard over-specifies and strangles implementation innovation, or there is no standard at all and every runtime is an island.
+
+| Layer | Standardize? | Analogy |
+| --- | --- | --- |
+| Tool-call protocol | Standardize | POSIX system calls / MCP |
+| Project instruction entry point | Standardize | Config convention / AGENTS.md |
+| Memory and context exchange format | Standardize | File format / serialization protocol |
+| Capability and permission declaration | Standardize | Capability / permission model |
+| Retrieval, caching, scheduling implementation | Runtime's choice | Kernel implementation detail |
+
+For this book's thesis, this section is a natural extension of the Agent OS argument: a real runtime layer does not just manage its own internals; it also makes agents, tools and memory portable across runtimes through standard interfaces. Whoever defines those interfaces is defining the "POSIX" of the agent ecosystem.
+
+## 13.7 A Possible Architecture Path
 
 A practical Agent OS can start small:
 
@@ -61,7 +79,7 @@ A practical Agent OS can start small:
 
 The point is to establish runtime boundaries before chasing more intelligence. Intelligence without boundaries only amplifies risk.
 
-## 13.7 This Book's Differentiated View
+## 13.8 This Book's Differentiated View
 
 Many Agent OS and AIOS discussions emphasize architecture shape and runnable prototypes: which modules exist, how the model is called and how the agent completes tasks. This book cares more about production constraints: cost, state, idempotency, replay, scheduling, isolation, permissions and reconciliation.
 
@@ -69,7 +87,7 @@ That perspective comes from distributed systems. Payments, orders, inventory, wo
 
 The core of agent system design is therefore not "make the model act like an operating system." It is "put the model inside a runtime controlled like an operating system."
 
-## 13.8 Book Summary
+## 13.9 Book Summary
 
 Chapter 1 started from the intuition of classical computer engineering. Chapter 2 placed the LLM as a compute engine. Chapter 3 described the agent as an orchestrator. Chapters 4-8 separated memory, tools, planner, storage, statelessness, context engineering, prompt indexes and context routing. Chapter 9 clarified token reduction and distillation. Chapters 10-12 added production reliability, concurrent scheduling and security. Chapter 13 combines these threads into the Agent OS view.
 

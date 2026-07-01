@@ -352,7 +352,7 @@ def convert_docx_to_pdf(docx_path: Path, pdf_path: Path) -> None:
 
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
-    version = "v0.7"
+    version = "v0.8"
     configs = [
         ReleaseConfig(
             lang="zh",

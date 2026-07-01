@@ -5,7 +5,7 @@ This repository contains a bilingual Markdown edition of a technical book on AI 
 ## Current State
 
 - Part I is drafted through Chapter 13 in both Chinese and English.
-- The current generated release is `v0.7` for Chapters 1-13.
+- The current generated release is `v0.8` for Chapters 1-13.
 - Markdown under `docs/` is the source of truth; DOCX/PDF files under `releases/` are generated artifacts.
 - `99-future-chapters.md` is now a revision-notes file, not a chapter backlog.
 

@@ -17,12 +17,12 @@ This repository keeps the editable book source in Markdown. Chapters 1-3 were ex
 
 ## Latest Release
 
-The latest generated release is `v0.7`, built from the Markdown source for Chapters 1-13:
+The latest generated release is `v0.8`, built from the Markdown source for Chapters 1-13:
 
-- Chinese DOCX: `releases/docx/AI_Agent_System_Design_CN_Part1_Ch1-13_v0.7.docx`
-- Chinese PDF: `releases/pdf/AI_Agent_System_Design_CN_Part1_Ch1-13_v0.7.pdf`
-- English DOCX: `releases/docx/AI_Agent_System_Design_EN_Part1_Ch1-13_v0.7.docx`
-- English PDF: `releases/pdf/AI_Agent_System_Design_EN_Part1_Ch1-13_v0.7.pdf`
+- Chinese DOCX: `releases/docx/AI_Agent_System_Design_CN_Part1_Ch1-13_v0.8.docx`
+- Chinese PDF: `releases/pdf/AI_Agent_System_Design_CN_Part1_Ch1-13_v0.8.pdf`
+- English DOCX: `releases/docx/AI_Agent_System_Design_EN_Part1_Ch1-13_v0.8.docx`
+- English PDF: `releases/pdf/AI_Agent_System_Design_EN_Part1_Ch1-13_v0.8.pdf`
 
 ## Content Map
 

@@ -55,7 +55,24 @@ Agents often modify shared objects: files, issues, orders, database records, doc
 
 Agents should not hold long pessimistic locks. A better pattern is short transactions, version checks, conflict detection and replanning. The system must surface conflicts explicitly instead of letting the model keep writing from stale context.
 
-## 11.6 Scheduling Policies
+## 11.6 Redundant Execution and Agent Handoff
+
+The previous sections assumed each task runs on exactly one agent. Real platforms are often the opposite: the same task can be picked up by several agents at once, a retry spawns a duplicate, a load balancer routes the request to two instances, or the user simply fires it again. Left unhandled, "multiple agents doing the same thing" turns straight into duplicated side effects: two emails sent, a card charged twice, two PRs opened.
+
+This is an old problem in distributed systems, with a few mature patterns. First, deduplication and an exactly-once boundary: use the business-semantic idempotency keys from Chapter 10 so whoever persists first executes, and late arrivals just return the existing result. Second, leader election: allow only one agent to become the executor of a given task, with the rest observing or standing by. Third, work stealing: a standby agent takes over only when the holder times out or fails, rather than racing it from the start.
+
+More subtle than dedup is agent handoff. A long task may change executors mid-flight: the original instance crashes, a rolling deploy replaces it, or the task is escalated to a more capable agent. The point of a handoff is not "copy the chat history over." It is handing over recoverable state: which step of the state machine we are on, which tool calls already produced side effects (with their idempotency keys), and which external sources the context should be rebuilt from. This is the payoff of the stateless agent from Chapter 6 — because state lives outside, the handoff can be clean.
+
+| Scenario | Distributed analogue | Agent-side approach |
+| --- | --- | --- |
+| Multiple agents grab one task | Idempotent consumption / exactly-once | Deduplicate on a business-semantic key; first to persist executes |
+| Only one executor allowed | Leader election | Task-level lock or lease; the rest stand by |
+| Take over after the executor fails | Failover / work stealing | On lease timeout, a standby resumes from the state machine |
+| Swap in a stronger agent mid-task | Process migration / checkpoint-restore | Hand over recoverable state, not a copy of the transcript |
+
+The point: redundancy is not removed by "hoping the model won't repeat itself." It is controlled with idempotency keys, leases and externalized state. Design for duplicate execution as the default, and the platform stays correct under retries and failures.
+
+## 11.7 Scheduling Policies
 
 Agent scheduling can borrow classical policies, but it must adapt them to cost and risk.
 
@@ -63,13 +80,13 @@ FIFO is simple but lets long tasks block short ones. Priority queues protect hig
 
 The practical answer is usually a combination: apply quotas by tenant and user, split queues by task type, decide whether confirmation is needed by risk level, then schedule by model and tool availability.
 
-## 11.7 Observability: From Trace to Load
+## 11.8 Observability: From Trace to Load
 
 A single agent trace explains one task. The scheduling system also needs global metrics: queue length, wait time, model concurrency, token usage, tool rate limits, failure rate, escalation rate, tenant budget and lock conflicts.
 
 These metrics determine whether the system is healthy. An agent can look intelligent, but if it causes queue buildup, repeated retries, budget exhaustion or tenant starvation, the platform is still unreliable.
 
-## 11.8 Summary
+## 11.9 Summary
 
 This chapter moved from the single-task view to the concurrent-system view. A planner solves ordering inside a task. A scheduler resolves competition across agents, tenants and resources.
 

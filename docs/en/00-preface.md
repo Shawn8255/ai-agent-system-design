@@ -2,7 +2,7 @@
 
 From Classical Computer Engineering to Modern Agent Architectures - Part I: Chapters 1-13
 
-*Working Draft v0.7 - 2026-06-30*
+*Working Draft v0.8 - 2026-06-30*
 
 ## Preface
 
