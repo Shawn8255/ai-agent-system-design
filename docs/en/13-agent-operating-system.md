@@ -87,7 +87,7 @@ That perspective comes from distributed systems. Payments, orders, inventory, wo
 
 The core of agent system design is therefore not "make the model act like an operating system." It is "put the model inside a runtime controlled like an operating system."
 
-## 13.9 Book Summary
+## 13.9 Part I Summary
 
 Chapter 1 started from the intuition of classical computer engineering. Chapter 2 placed the LLM as a compute engine. Chapter 3 described the agent as an orchestrator. Chapters 4-8 separated memory, tools, planner, storage, statelessness, context engineering, prompt indexes and context routing. Chapter 9 clarified token reduction and distillation. Chapters 10-12 added production reliability, concurrent scheduling and security. Chapter 13 combines these threads into the Agent OS view.
 

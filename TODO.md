@@ -39,7 +39,8 @@
 - [x] Add a redundant-execution and agent-handoff section to the multi-agent chapter (Chapter 11.6).
 - [x] Add a cross-runtime standards and portability section to the Agent OS chapter (Chapter 13.6).
 - [x] Add a Part II forward-looking plan for learned memory / skill / routing in `99-future-chapters.md`.
-- [x] Generate v0.8 DOCX/PDF release artifacts for Chapters 1-13.
+- [x] Draft Chapter 14 (Part II opening): learned memory, skill and routing.
+- [x] Generate v0.9 DOCX/PDF release artifacts for Chapters 1-14.
 - [ ] Turn the distillation-vs-token-reduction argument into a publishable X thread derived from Chapter 9.
 - [ ] Add a short English summary to the root README for overseas readers if the repository is promoted publicly.
 - [ ] Decide whether release DOCX/PDF artifacts should stay committed or move to GitHub Releases after public launch.

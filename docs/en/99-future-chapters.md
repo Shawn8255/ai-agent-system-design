@@ -28,14 +28,16 @@ Whenever the Chinese prose changes, the English version should be checked for an
 
 Before a public release, run one full release pass: Markdown links, DOCX/PDF generation, figure rendering, chapter status, README wording, license choice and contribution boundaries. The manuscript can accept errata, examples and translation improvements, while the main structure should remain author-maintained.
 
-## 6. Part II Direction: Letting Agents Learn Their Own Memory and Skills (Forward-Looking)
+## 6. Part II Progress and Further Directions
 
-Part I treats memory, context, distillation and routing as components driven by engineering rules: humans decide the pruning strategy, the recall strategy and the routing thresholds. A natural forward-looking direction is to hand those decisions themselves to learning. This is research-oriented, so it is kept as a separate Part II rather than mixed into Part I's production-constraint voice.
+Part II now opens with Chapter 14, which formally discusses moving memory, skill and routing from rule-driven to learned (learned memory, learned skill, learned routing), and uses the database precedent of "from query optimizer to learned index" to show the engineering feasibility and limits.
 
-- Learned memory: instead of fixed rules deciding "what to store, what to recall, when to promote a result into a long-term fact," use a model to learn the memory-management policy from past tasks, the way learned indexes and adaptive query optimizers do in databases. The core analogy follows Chapters 4 and 7: reading memory already resembles retrieval with relevance ranking, and the ranker can be learned.
-- Learned skill: gradually solidify recurring workflows from "re-plan with the large model every time" into skills. This is the same thread as distillation in Chapter 9, but it emphasizes online accumulation — the agent discovers stable patterns in use, then pushes them down into a small model or a fixed workflow.
-- Learned routing: use reinforcement or online learning to tune the routing thresholds of tiered compute (Chapter 9), deciding when to escalate and when to stop based on real confidence and cost feedback.
+Beyond that, Part II can continue along the following directions (not yet drafted):
+
+- Evaluation systems for learned components: how to build independent, reproducible evaluation sets for learned memory / skill / routing, avoiding inflated metrics from self-assessment on online data.
+- Stability of online learning: distribution-drift detection, policy fallback mechanisms, and convergence and safety boundaries under delayed feedback.
+- Learning in multi-agent collaboration: when multiple agents share memory and skills, how to avoid feedback loops that amplify each other's bias, and how to isolate and reuse skills across tenants.
 
 The writing should keep the book's usual restraint: give analogies and limits, and do not promise unproven results. The payoff of these directions depends on a stable task distribution, an evaluation system and enough samples.
 
-> Note: the topics "multi-agent redundant execution and handoff" and "standards and portability across agent runtimes" have been incorporated into the main text of Chapter 11 (11.6) and Chapter 13 (13.6) respectively, and are no longer separate Part II directions.
+> Note: the topics "multi-agent redundant execution and handoff" and "standards and portability across agent runtimes" have been incorporated into the main text of Chapter 11 (11.6) and Chapter 13 (13.6) respectively.

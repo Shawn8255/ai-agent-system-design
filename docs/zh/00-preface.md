@@ -1,8 +1,8 @@
 # AI Agent 系统设计
 
-从经典计算机工程到现代智能体架构 - 第一部分：前十三章完整版
+从经典计算机工程到现代智能体架构 - 第一部分（前十三章）与第二部分开篇
 
-*Working Draft v0.8 - 2026-06-30*
+*Working Draft v0.9 - 2026-06-30*
 
 ## 前言
 
@@ -10,7 +10,7 @@
 
 本文的基本观点是：LLM 是最近几年 AI 的核心突破，但当 LLM 被放进真实产品和真实工作流之后，很多问题又重新回到了计算机工程最熟悉的领域：如何管理状态、如何降低远程调用成本、如何做缓存和索引、如何保持服务无状态、如何在多个计算资源之间调度。
 
-第一部分完成前十三章：第 1 章建立整体视角；第 2 章把 LLM 放回“计算引擎”的位置；第 3 章说明 Agent 为什么更像 Orchestrator；第 4 章拆清 Memory、Tool 与 Planner 的职责边界；第 5 章讨论 Compute / Storage Separation；第 6 章说明 Stateless Agent 为什么接近微服务设计；第 7-8 章进一步讨论 Context Engineering、AGENTS.md（Prompt Index）和 Retrieval / Context Routing；第 9-13 章补上成本、生产可靠性、并发调度、安全和 Agent OS 的整体收束。
+第一部分完成前十三章：第 1 章建立整体视角；第 2 章把 LLM 放回“计算引擎”的位置；第 3 章说明 Agent 为什么更像 Orchestrator；第 4 章拆清 Memory、Tool 与 Planner 的职责边界；第 5 章讨论 Compute / Storage Separation；第 6 章说明 Stateless Agent 为什么接近微服务设计；第 7-8 章进一步讨论 Context Engineering、AGENTS.md（Prompt Index）和 Retrieval / Context Routing；第 9-13 章补上成本、生产可靠性、并发调度、安全和 Agent OS 的整体收束。第 14 章开启第二部分，讨论把这些"由规则驱动"的组件学习化的方向（Learned Memory、Skill 与 Routing）。
 
 > 核心主线：LLM 是新的 Compute Engine，Agent 是围绕它进行上下文管理、工具调用、状态恢复和资源调度的 Orchestrator。
 
@@ -31,6 +31,8 @@
 | 第 11 章 | Multi-Agent、并发调度与多租户 | 已完成 |
 | 第 12 章 | Agent 安全：Prompt Injection、Sandbox 与权限边界 | 已完成 |
 | 第 13 章 | 未来方向：Agent Operating System | 已完成 |
+| — | **第二部分（Part II）** | — |
+| 第 14 章 | Part II 开篇：Learned Memory、Skill 与 Routing | 已完成 |
 
 ## 术语约定
 

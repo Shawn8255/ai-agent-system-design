@@ -2,7 +2,7 @@
 
 A bilingual technical book about AI Agent system design from the perspective of classical computer engineering.
 
-This repository keeps the editable book source in Markdown. Chapters 1-3 were extracted from the original DOCX releases, and Chapters 4-13 continue the same system-design line as a complete Part I draft. The Markdown files under `docs/` are now the source of truth.
+This repository keeps the editable book source in Markdown. Chapters 1-3 were extracted from the original DOCX releases, and Chapters 4-13 continue the same system-design line as a complete Part I draft. Chapter 14 opens Part II. The Markdown files under `docs/` are now the source of truth.
 
 ## Languages
 
@@ -11,24 +11,25 @@ This repository keeps the editable book source in Markdown. Chapters 1-3 were ex
 
 ## Current Scope
 
-- Chapters 1-13 are complete in Markdown as the current Part I draft.
+- Chapters 1-13 are complete in Markdown as the Part I draft; Chapter 14 opens Part II.
 - The terminology table and chapter plan are maintained in each language's `00-preface.md`.
 - The final chapters cover token cost, production reliability, concurrent scheduling, multi-tenancy, security/sandboxing, and the Agent OS synthesis as first-class topics.
 
 ## Latest Release
 
-The latest generated release is `v0.8`, built from the Markdown source for Chapters 1-13:
+The latest generated release is `v0.9`, built from the Markdown source for Chapters 1-14:
 
-- Chinese DOCX: `releases/docx/AI_Agent_System_Design_CN_Part1_Ch1-13_v0.8.docx`
-- Chinese PDF: `releases/pdf/AI_Agent_System_Design_CN_Part1_Ch1-13_v0.8.pdf`
-- English DOCX: `releases/docx/AI_Agent_System_Design_EN_Part1_Ch1-13_v0.8.docx`
-- English PDF: `releases/pdf/AI_Agent_System_Design_EN_Part1_Ch1-13_v0.8.pdf`
+- Chinese DOCX: `releases/docx/AI_Agent_System_Design_CN_Part1_Ch1-14_v0.9.docx`
+- Chinese PDF: `releases/pdf/AI_Agent_System_Design_CN_Part1_Ch1-14_v0.9.pdf`
+- English DOCX: `releases/docx/AI_Agent_System_Design_EN_Part1_Ch1-14_v0.9.docx`
+- English PDF: `releases/pdf/AI_Agent_System_Design_EN_Part1_Ch1-14_v0.9.pdf`
 
 ## Content Map
 
 - Chapters 1-3: original foundation extracted from the DOCX sources.
 - Chapters 4-8: memory, tools, planner, storage separation, stateless agents, context engineering, prompt index, and retrieval routing.
 - Chapters 9-13: token cost, distillation, tiered compute, production reliability, concurrent scheduling, security, and Agent OS.
+- Chapter 14: Part II opening on learned memory, skill and routing.
 - `99-future-chapters.md`: future revision notes, not planned chapter prose.
 
 ## Source Files
@@ -59,5 +60,5 @@ The book content (text and figures) is licensed under [Creative Commons Attribut
 
 - Update both `docs/zh` and `docs/en` when changing shared structure, chapter status, or terminology.
 - Keep Chapters 1-3 stable in meaning; prefer small corrections over rewrites.
-- Do not add Chapter 14 or later prose until the bilingual chapter plan has been intentionally extended.
+- Do not add Chapter 15 or later prose until the bilingual chapter plan has been intentionally extended.
 - Use `TODO.md` for publication tasks such as citations, examples, release checklist, and X thread drafts.

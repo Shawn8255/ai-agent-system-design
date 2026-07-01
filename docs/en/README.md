@@ -1,6 +1,6 @@
 # English Documentation
 
-This directory contains the English Markdown version. Chapters 1-3 preserve the original DOCX source meaning; Chapters 4-13 continue the same architectural line and form a complete Part I draft.
+This directory contains the English Markdown version. Chapters 1-3 preserve the original DOCX source meaning; Chapters 4-13 continue the same architectural line and form a complete Part I draft; Chapter 14 opens Part II.
 
 - [Preface, chapter plan and terminology](00-preface.md)
 - [Chapter 1. Why AI Agents Remind Me of Classical Computer Engineering](01-classical-computer-engineering.md)
@@ -16,6 +16,7 @@ This directory contains the English Markdown version. Chapters 1-3 preserve the 
 - [Chapter 11. Multi-Agent, Concurrent Scheduling and Multi-Tenancy](11-multi-agent-concurrent-scheduling.md)
 - [Chapter 12. Agent Security: Prompt Injection, Sandboxes and Capability Boundaries](12-agent-security.md)
 - [Chapter 13. Toward an Agent Operating System](13-agent-operating-system.md)
+- [Chapter 14. Part II Opening: Learned Memory, Skill and Routing](14-learned-memory-skill-routing.md)
 - [References](98-references.md)
 - [Future revision notes](99-future-chapters.md)
 - [Publication and open source notes](notes/publication-strategy.md)
