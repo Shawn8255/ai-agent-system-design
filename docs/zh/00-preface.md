@@ -2,7 +2,7 @@
 
 从经典计算机工程到现代智能体架构 - 第一部分（前十三章）与第二部分开篇
 
-*Working Draft v0.9 - 2026-06-30*
+*Working Draft v0.10 - 2026-06-30*
 
 ## 前言
 
@@ -54,6 +54,7 @@
 | Scheduler | 在多 Agent、多任务和多租户之间分配资源的系统组件 | OS Scheduler / Resource Manager |
 | Capability Boundary | 对工具、资源、操作和参数的显式权限边界 | Permission Model / Capability System |
 | Agent OS | 管理 Agent 上下文、工具、状态、调度、安全和可靠性的运行时层 | Operating System / Runtime |
+| Harness | 行业里对 Orchestrator/Agent 运行时的另一种称呼，与模型可以解耦、自由组合 | Agent Runtime |
 
 ![图 1](assets/figure-01.png)
 

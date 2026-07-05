@@ -52,6 +52,23 @@ An agent as orchestrator introduces new risks. A bad router may send simple task
 
 Therefore, agent systems need observability, logs, audits, replay, evaluation sets and escalation policies. This again shows that agents are not just conversation interfaces. They are software systems that need system engineering discipline.
 
-## 3.8 Summary
+## 3.8 Harness: The Industry's Other Name for This Layer
 
-This chapter positions the agent as an orchestrator. It is not the model itself. It is the system layer that organizes memory, tools, planning, context and resource scheduling around the model. This prepares the ground for later chapters: why memory resembles storage, why AGENTS.md resembles an index, why distillation resembles tiered compute, and why multi-agent systems increasingly resemble distributed systems.
+The previous sections positioned the agent as an orchestrator, the term this book uses. The industry has another, increasingly common word for the same layer: harness. Anthropic calls Claude Code a harness. Teams like METR that evaluate agent capability routinely talk about "running a benchmark with harness X on model Y." Both words point at the same thing: the runtime around an LLM responsible for tool calls, context construction and the execution loop.
+
+The terms differ, but the boundaries are worth separating clearly, especially from a third concept that gets blended in: the framework.
+
+| Concept | What it is | Example |
+| --- | --- | --- |
+| LLM | Stateless inference engine | A specific model |
+| Framework | A toolkit for building a harness; not itself a running agent | A general-purpose agent-building library |
+| Harness | The running runtime scaffold: tool definitions, execution loop, context management, permissions | Claude Code, various coding-agent products |
+| Agent | Model + harness + tools + memory combined into a system that completes tasks autonomously | One concrete execution instance |
+
+There is a fact here that is easy to overlook but matters for system design: a harness and the model running behind it are not locked into a one-to-one pair. Some harnesses are indeed built around a single model, but a more common pattern is a model-agnostic harness that can plug in models from different vendors, or even route different steps of the same task to different models within one harness — cheap models for low-risk steps, the strongest model only for the steps that need it. This is the tiered compute idea from section 3.5 showing up at the harness level: the thing being tiered is not just "whether to call the large model," but "which vendor's model handles this particular step."
+
+This decoupling matters again in section 13.6: once harnesses and models can be freely combined, keeping harnesses interoperable with each other becomes a problem that needs standardized interfaces to solve.
+
+## 3.9 Summary
+
+This chapter positions the agent as an orchestrator, also commonly called a harness in the industry. It is not the model itself. It is the system layer that organizes memory, tools, planning, context and resource scheduling around the model. This prepares the ground for later chapters: why memory resembles storage, why AGENTS.md resembles an index, why distillation resembles tiered compute, and why multi-agent systems increasingly resemble distributed systems.

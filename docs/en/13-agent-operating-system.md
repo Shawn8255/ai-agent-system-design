@@ -65,6 +65,8 @@ The key is separating what should be standardized from what is an implementation
 
 For this book's thesis, this section is a natural extension of the Agent OS argument: a real runtime layer does not just manage its own internals; it also makes agents, tools and memory portable across runtimes through standard interfaces. Whoever defines those interfaces is defining the "POSIX" of the agent ecosystem.
 
+The harness/model decoupling noted in section 3.8 is real-world evidence that this standard is becoming necessary. A growing number of harnesses are model-agnostic: the same harness can plug in models from different vendors, or even route different steps of a task to different models. If every harness were locked to one vendor's model, whether to standardize the tool protocol would have little urgency — the ecosystem would naturally be a set of disconnected silos. But once harnesses and models can be freely combined, whether harnesses can understand each other's tool definitions, context formats and project instructions becomes a question that has to be answered. In other words, the harness/model decoupling turns "standardize the interface" from a nice-to-have idea into an engineering necessity that is only a matter of time.
+
 ## 13.7 A Possible Architecture Path
 
 A practical Agent OS can start small:

@@ -2,7 +2,7 @@
 
 From Classical Computer Engineering to Modern Agent Architectures - Part I (Chapters 1-13) and Part II opening
 
-*Working Draft v0.9 - 2026-06-30*
+*Working Draft v0.10 - 2026-06-30*
 
 ## Preface
 
@@ -54,6 +54,7 @@ Part I completes the first thirteen chapters. Chapter 1 establishes the system-l
 | Scheduler | System component that allocates resources across agents, tasks and tenants | OS Scheduler / Resource Manager |
 | Capability Boundary | Explicit permission boundary for tools, resources, operations and parameters | Permission Model / Capability System |
 | Agent OS | Runtime layer that manages agent context, tools, state, scheduling, security and reliability | Operating System / Runtime |
+| Harness | The industry's other name for the orchestrator/agent runtime; decoupled from and freely combined with the model | Agent Runtime |
 
 ![Figure 1](assets/figure-01.png)
 

@@ -5,7 +5,7 @@ This repository contains a bilingual Markdown edition of a technical book on AI 
 ## Current State
 
 - Part I (Chapters 1-13) is drafted in both Chinese and English; Chapter 14 opens Part II.
-- The current generated release is `v0.9` for Chapters 1-14.
+- The current generated release is `v0.10` for Chapters 1-14.
 - Markdown under `docs/` is the source of truth; DOCX/PDF files under `releases/` are generated artifacts.
 - `99-future-chapters.md` is now a revision-notes file, not a chapter backlog.
 
@@ -42,6 +42,7 @@ This repository contains a bilingual Markdown edition of a technical book on AI 
   - Concurrent Scheduling
   - Capability Boundary
   - Agent OS
+  - Harness
 
 ## Structure
 

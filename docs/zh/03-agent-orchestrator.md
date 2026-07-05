@@ -52,6 +52,23 @@ Agent 作为 Orchestrator 也带来新的风险。第一，路由错误会导致
 
 因此 Agent 系统需要可观测性、日志、审计、回放、评估集和升级策略。这些再次说明 Agent 已经不是一个单纯的对话界面，而是一个需要系统工程方法来设计和运维的软件系统。
 
-## 3.8 本章小结
+## 3.8 Harness：行业里对这层的另一种称呼
 
-本章将 Agent 定位为 Orchestrator。它不是模型本身，而是围绕模型组织 Memory、Tool、Planner、Context 和资源调度的系统层。这个定位为后续章节铺垫了基础：Memory 为什么像 Storage，AGENTS.md 为什么像 Index，Distillation 为什么像 Tiered Compute，以及 Multi-Agent 为什么会越来越接近分布式系统。
+前面几节把 Agent 定位为 Orchestrator，这是本书选用的说法。行业里还有另一个越来越常见的词描述同一层：**Harness**。Anthropic 把 Claude Code 称为一个 harness；METR 这类做 Agent 能力评测的团队，也习惯说"用某个 harness 跑某个模型的评测"。两个词指的是同一件事：**围绕 LLM，负责工具调用、上下文构造和执行循环的运行时**。
+
+术语不同，但边界要分清楚，容易被混在一起的还有 Framework：
+
+| 概念 | 是什么 | 举例 |
+| --- | --- | --- |
+| LLM | 无状态的推理引擎 | 具体某个模型 |
+| Framework | 用来搭建 Harness 的工具库，本身不是一个跑起来的 Agent | 通用 Agent 开发库 |
+| Harness | 具体跑起来的运行时脚手架：工具定义、执行循环、上下文管理、权限 | Claude Code、各类编码 Agent 产品 |
+| Agent | 模型 + Harness + 工具 + Memory 组合出来、能自主完成任务的整体 | 一次具体的执行实例 |
+
+这里有一个容易被忽略、但对系统设计很重要的事实：**Harness 和它背后跑的模型，不是绑死的一对一关系**。有些 Harness 确实围绕单一模型设计；但更常见的模式是 Harness 本身模型无关（model-agnostic），可以插入不同厂商的模型，甚至同一个 Harness 内部会按任务把不同步骤路由给不同模型——低风险步骤给便宜模型，关键步骤才升级到最强模型。这正是第 3.5 节"分层计算"在 Harness 层面的具体体现：分层的对象不只是"要不要调用大模型"，也包括"这一步该用哪个厂商的哪个模型"。
+
+这个解耦事实，会在第 13.6 节继续展开：既然 Harness 和模型可以自由组合，Harness 之间怎么保持互操作，就成了一个需要标准化接口来解决的问题。
+
+## 3.9 本章小结
+
+本章将 Agent 定位为 Orchestrator，行业里也常称为 Harness。它不是模型本身，而是围绕模型组织 Memory、Tool、Planner、Context 和资源调度的系统层。这个定位为后续章节铺垫了基础：Memory 为什么像 Storage，AGENTS.md 为什么像 Index，Distillation 为什么像 Tiered Compute，以及 Multi-Agent 为什么会越来越接近分布式系统。
