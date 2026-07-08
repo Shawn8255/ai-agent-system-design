@@ -17,8 +17,27 @@ from docx.oxml.ns import qn
 from docx.shared import Inches, Pt, RGBColor
 
 
-PYTHON_RUNTIME_ROOT = Path("/Users/xiaochen/.cache/codex-runtimes/codex-primary-runtime/dependencies")
-SOFFICE = PYTHON_RUNTIME_ROOT / "bin/soffice"
+def find_soffice() -> Path:
+    explicit_path = os.environ.get("SOFFICE")
+    if explicit_path:
+        return Path(explicit_path)
+
+    path_match = shutil.which("soffice")
+    if path_match:
+        return Path(path_match)
+
+    for env_name in ("PYTHON_RUNTIME_ROOT", "CODEX_PYTHON_RUNTIME_ROOT"):
+        runtime_root = os.environ.get(env_name)
+        if not runtime_root:
+            continue
+        candidate = Path(runtime_root) / "bin" / "soffice"
+        if candidate.exists():
+            return candidate
+
+    raise RuntimeError(
+        "LibreOffice 'soffice' was not found. Install LibreOffice, add "
+        "'soffice' to PATH, or set SOFFICE=/path/to/soffice."
+    )
 
 
 @dataclass(frozen=True)
@@ -257,6 +276,9 @@ def add_text_paragraph(doc: Document, line: str, font_name: str) -> None:
 def build_docx(config: ReleaseConfig) -> None:
     config.docx_path.parent.mkdir(parents=True, exist_ok=True)
     doc = Document()
+    doc.core_properties.author = "AI Agent System Design"
+    doc.core_properties.comments = "Generated from Markdown source"
+    doc.core_properties.last_modified_by = ""
     section = doc.sections[0]
     section.page_width = Inches(8.5)
     section.page_height = Inches(11)
@@ -321,6 +343,7 @@ def build_docx(config: ReleaseConfig) -> None:
 
 def convert_docx_to_pdf(docx_path: Path, pdf_path: Path) -> None:
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
+    soffice = find_soffice()
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         lo_profile = tmp_path / "lo-profile"
@@ -332,7 +355,7 @@ def convert_docx_to_pdf(docx_path: Path, pdf_path: Path) -> None:
         env["XDG_CACHE_HOME"] = str(cache_home)
         subprocess.run(
             [
-                str(SOFFICE),
+                str(soffice),
                 f"-env:UserInstallation=file://{lo_profile}",
                 "--headless",
                 "--convert-to",

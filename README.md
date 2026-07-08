@@ -50,7 +50,7 @@ DOCX/PDF releases can be regenerated from the Markdown source with:
 python3 tools/markdown_to_release.py
 ```
 
-Use the bundled Codex Python runtime if available, because it includes `python-docx`.
+The release script requires `python-docx`. PDF conversion also requires LibreOffice's `soffice` binary on `PATH`, or an explicit `SOFFICE=/path/to/soffice` environment variable.
 
 ## License
 
