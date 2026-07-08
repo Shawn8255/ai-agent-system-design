@@ -21,8 +21,10 @@ The latest generated release is `v0.10`, built from the Markdown source for Chap
 
 - Chinese DOCX: `releases/docx/AI_Agent_System_Design_CN_Part1_Ch1-14_v0.10.docx`
 - Chinese PDF: `releases/pdf/AI_Agent_System_Design_CN_Part1_Ch1-14_v0.10.pdf`
+- Chinese Markdown: `releases/markdown/AI_Agent_System_Design_CN_Part1_Ch1-14_v0.10.md`
 - English DOCX: `releases/docx/AI_Agent_System_Design_EN_Part1_Ch1-14_v0.10.docx`
 - English PDF: `releases/pdf/AI_Agent_System_Design_EN_Part1_Ch1-14_v0.10.pdf`
+- English Markdown: `releases/markdown/AI_Agent_System_Design_EN_Part1_Ch1-14_v0.10.md`
 
 ## Content Map
 
@@ -44,13 +46,15 @@ python3 tools/docx_to_markdown.py
 
 That extractor is only for the original DOCX source conversion. The current authored source of truth is Markdown under `docs/`.
 
-DOCX/PDF releases can be regenerated from the Markdown source with:
+Markdown, DOCX and PDF releases can be regenerated from the Markdown source with:
 
 ```bash
 python3 tools/markdown_to_release.py
 ```
 
 The release script requires `python-docx`. PDF conversion also requires LibreOffice's `soffice` binary on `PATH`, or an explicit `SOFFICE=/path/to/soffice` environment variable.
+
+The Markdown files under `docs/` remain the editable source of truth. Files under `releases/markdown`, `releases/docx` and `releases/pdf` are generated release artifacts.
 
 ## License
 

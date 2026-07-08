@@ -46,6 +46,7 @@ class ReleaseConfig:
     title: str
     subtitle: str
     source_dir: Path
+    markdown_path: Path
     docx_path: Path
     pdf_path: Path
     font: str
@@ -180,6 +181,27 @@ def iter_book_lines(source_dir: Path) -> list[str]:
             lines.extend(["", "\\pagebreak", ""])
         lines.extend(text.splitlines())
     return lines
+
+
+def rewrite_markdown_image_links(text: str, source_dir: Path, markdown_path: Path) -> str:
+    def replace(match: re.Match[str]) -> str:
+        prefix, rel_path, suffix = match.groups()
+        if re.match(r"^[a-z][a-z0-9+.-]*:", rel_path) or rel_path.startswith("#"):
+            return match.group(0)
+        target = source_dir / rel_path
+        release_rel_path = os.path.relpath(target, markdown_path.parent)
+        return f"{prefix}{release_rel_path}{suffix}"
+
+    return re.sub(r"(!\[[^\]]*\]\()([^)]+)(\))", replace, text)
+
+
+def build_markdown(config: ReleaseConfig) -> None:
+    config.markdown_path.parent.mkdir(parents=True, exist_ok=True)
+    sections: list[str] = []
+    for filename in BOOK_FILES:
+        text = (config.source_dir / filename).read_text(encoding="utf-8").strip()
+        sections.append(rewrite_markdown_image_links(text, config.source_dir, config.markdown_path))
+    config.markdown_path.write_text("\n\n".join(sections) + "\n", encoding="utf-8")
 
 
 def split_table_row(line: str) -> list[str]:
@@ -383,6 +405,7 @@ def main() -> None:
             title="AI Agent 系统设计",
             subtitle="从经典计算机工程到现代智能体架构 - 第一部分（前十三章）与第二部分开篇",
             source_dir=root / "docs/zh",
+            markdown_path=root / f"releases/markdown/AI_Agent_System_Design_CN_Part1_Ch1-14_{version}.md",
             docx_path=root / f"releases/docx/AI_Agent_System_Design_CN_Part1_Ch1-14_{version}.docx",
             pdf_path=root / f"releases/pdf/AI_Agent_System_Design_CN_Part1_Ch1-14_{version}.pdf",
             font="Arial",
@@ -392,14 +415,17 @@ def main() -> None:
             title="AI Agent System Design",
             subtitle="From Classical Computer Engineering to Modern Agent Architectures - Part I (Chapters 1-13) and Part II opening",
             source_dir=root / "docs/en",
+            markdown_path=root / f"releases/markdown/AI_Agent_System_Design_EN_Part1_Ch1-14_{version}.md",
             docx_path=root / f"releases/docx/AI_Agent_System_Design_EN_Part1_Ch1-14_{version}.docx",
             pdf_path=root / f"releases/pdf/AI_Agent_System_Design_EN_Part1_Ch1-14_{version}.pdf",
             font="Arial",
         ),
     ]
     for config in configs:
+        build_markdown(config)
         build_docx(config)
         convert_docx_to_pdf(config.docx_path, config.pdf_path)
+        print(config.markdown_path)
         print(config.docx_path)
         print(config.pdf_path)
 
